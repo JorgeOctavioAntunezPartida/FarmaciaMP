@@ -57,3 +57,6 @@ SELECT * FROM pharmacyTable
 SELECT * FROM locationTable
 SELECT * FROM medicineTable
 SELECT * FROM inventoryTable
+
+DELETE FROM ownerTable
+DBCC CHECKIDENT ('ownerTable', RESEED, 0);
