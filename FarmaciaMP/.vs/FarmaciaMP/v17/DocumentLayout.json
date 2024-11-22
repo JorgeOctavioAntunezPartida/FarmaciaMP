@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\jorge\\desktop\\farmaciamp\\frm_consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\jorge\\desktop\\farmaciamp\\frm_propietario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_propietario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_farmacia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_farmacia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_medicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_medicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\jorge\\desktop\\farmaciamp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\jorge\\desktop\\farmaciamp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T01:22:59.327Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T01:25:24.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frm_ciudad.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_ciudad.cs",
+              "RelativeDocumentMoniker": "frm_ciudad.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_ciudad.cs",
+              "RelativeToolTip": "frm_ciudad.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T20:59:51.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frm_medicamento.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_medicamento.cs",
+              "RelativeDocumentMoniker": "frm_medicamento.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_medicamento.cs",
+              "RelativeToolTip": "frm_medicamento.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T20:59:44.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frm_farmacia.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_farmacia.cs",
+              "RelativeDocumentMoniker": "frm_farmacia.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_farmacia.cs",
+              "RelativeToolTip": "frm_farmacia.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T08:54:00.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frm_propietario.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_propietario.cs",
+              "RelativeDocumentMoniker": "frm_propietario.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_propietario.cs",
+              "RelativeToolTip": "frm_propietario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T03:47:53.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frm_consulta.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_consulta.cs",
+              "RelativeDocumentMoniker": "frm_consulta.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Desktop\\FarmaciaMP\\frm_consulta.cs",
+              "RelativeToolTip": "frm_consulta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T01:26:13Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
