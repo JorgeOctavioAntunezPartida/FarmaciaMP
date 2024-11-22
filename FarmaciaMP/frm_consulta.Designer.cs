@@ -141,6 +141,7 @@
             // 
             this.cbx_tablas.BackColor = System.Drawing.Color.White;
             this.cbx_tablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_tablas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_tablas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_tablas.FormattingEnabled = true;
             this.cbx_tablas.Items.AddRange(new object[] {
