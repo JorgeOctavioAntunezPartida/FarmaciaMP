@@ -9,7 +9,9 @@ CREATE TABLE ownerTable
     ownerId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único del propietario
     ownerName NVARCHAR(50) NOT NULL,       -- Nombre del propietario
 	ownerLastName NVARCHAR(50) NOT NULL,   -- Apellido del propietario
-    ownerContactInfo NVARCHAR(128)         -- Información de contacto
+	ownerGender CHAR(1) NOT NULL,          -- Genero
+	ownerPhoneNumber NVARCHAR(20),         -- Numero telefonico
+    ownerGmail NVARCHAR(128)               -- Información de contacto (Correo electronico)
 );
 
 --[Ubicacion]
