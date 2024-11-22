@@ -17,7 +17,7 @@ CREATE TABLE ownerTable
 --[Ubicacion]
 CREATE TABLE locationTable
 (
-    locationId INT PRIMARY KEY IDENTITY(1,1),  -- Identificador único de la ubicación
+    locationId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único de la ubicación
     locationAddress NVARCHAR(75),             -- Dirección
     locationCity NVARCHAR(50),                -- Ciudad
     locationState NVARCHAR(50)                -- Estado
