@@ -18,27 +18,27 @@ CREATE TABLE ownerTable
 CREATE TABLE locationTable
 (
     locationId INT PRIMARY KEY IDENTITY(1,1),  -- Identificador único de la ubicación
-    locationAddress NVARCHAR(255),             -- Dirección
-    locationCity NVARCHAR(100),                -- Ciudad
-    locationState NVARCHAR(100)                -- Estado
+    locationAddress NVARCHAR(75),             -- Dirección
+    locationCity NVARCHAR(50),                -- Ciudad
+    locationState NVARCHAR(50)                -- Estado
 );
 
 --[Farmacia]
 CREATE TABLE pharmacyTable
 (
     pharmacyId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único de la farmacia
-    pharmacyName NVARCHAR(100) NOT NULL,      -- Nombre de la farmacia
+    pharmacyName NVARCHAR(50) NOT NULL,      -- Nombre de la farmacia
     ownerId INT NOT NULL,                     -- Relación con el propietario
     locationId INT NOT NULL,                  -- Relación con la ubicación
-    FOREIGN KEY (OwnerId) REFERENCES ownerTable(OwnerId),
-    FOREIGN KEY (LocationId) REFERENCES locationTable(LocationId)
+    FOREIGN KEY (ownerId) REFERENCES ownerTable(ownerId),
+    FOREIGN KEY (locationId) REFERENCES locationTable(locationId)
 );
 
 --[Medicamento]
 CREATE TABLE medicineTable
 (
     medicineId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único del medicamento
-    medicineName NVARCHAR(100) NOT NULL,      -- Nombre del medicamento
+    medicineName NVARCHAR(50) NOT NULL,      -- Nombre del medicamento
 );
 
 --[Inventario]
