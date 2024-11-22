@@ -50,7 +50,6 @@
             this.gbx_insert = new System.Windows.Forms.GroupBox();
             this.gbx_table = new System.Windows.Forms.GroupBox();
             this.dgv_ownerTable = new System.Windows.Forms.DataGridView();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.gbx_insert.SuspendLayout();
             this.gbx_table.SuspendLayout();
@@ -324,24 +323,9 @@
             this.dgv_ownerTable.Location = new System.Drawing.Point(6, 18);
             this.dgv_ownerTable.Name = "dgv_ownerTable";
             this.dgv_ownerTable.ReadOnly = true;
-            this.dgv_ownerTable.Size = new System.Drawing.Size(308, 256);
+            this.dgv_ownerTable.Size = new System.Drawing.Size(308, 198);
             this.dgv_ownerTable.TabIndex = 0;
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_cancelar.FlatAppearance.BorderSize = 2;
-            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_cancelar.Location = new System.Drawing.Point(672, 432);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(100, 50);
-            this.btn_cancelar.TabIndex = 20;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Visible = false;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            this.dgv_ownerTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ownerTable_CellContentClick);
             // 
             // frm_propietario
             // 
@@ -351,7 +335,6 @@
             this.BackgroundImage = global::FarmaciaMP.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 761);
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.gbx_table);
             this.Controls.Add(this.gbx_insert);
             this.Controls.Add(this.btn_modificar);
@@ -401,6 +384,5 @@
         private System.Windows.Forms.GroupBox gbx_insert;
         private System.Windows.Forms.GroupBox gbx_table;
         private System.Windows.Forms.DataGridView dgv_ownerTable;
-        private System.Windows.Forms.Button btn_cancelar;
     }
 }

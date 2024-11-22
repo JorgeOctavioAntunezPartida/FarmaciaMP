@@ -12,6 +12,7 @@ using static FarmaciaMP.pantalla_inicio;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.RegularExpressions;
 using System.Collections;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace FarmaciaMP
 {
@@ -64,14 +65,16 @@ namespace FarmaciaMP
         #region Boton Eliminar
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            if (btn_eliminar.BackColor == Color.White)
+            if (btn_eliminar.Text == "Eliminar")
             {
+                ClearRegister(); // Limpia las cajas de texto
+
                 gbx_table.Visible = true;
                 btn_guardar.Enabled = false;
                 btn_modificar.Enabled = false;
-                btn_cancelar.Visible = true;
+                btn_eliminar.Text = "Cancelar";
 
-                btn_eliminar.BackColor = Color.Red;
+                btn_eliminar.BackColor = Color.Gray;
                 btn_eliminar.ForeColor = Color.White;
                 btn_eliminar.FlatAppearance.BorderColor = Color.White;
 
@@ -79,102 +82,101 @@ namespace FarmaciaMP
             }
             else
             {
-                if (dgv_ownerTable.SelectedCells.Count > 0)
-                {
-                    // Obtener la celda seleccionada
-                    DataGridViewCell selectedCell = dgv_ownerTable.SelectedCells[0];
+                btn_eliminar.Text = "Eliminar";
+                gbx_table.Visible = false;
+                btn_guardar.Enabled = true;
+                btn_modificar.Enabled = true;
 
-                    // Obtener la fila correspondiente a la celda seleccionada
-                    DataGridViewRow selectedRow = selectedCell.OwningRow;
+                btn_eliminar.BackColor = Color.White;
+                btn_eliminar.ForeColor = Color.FromArgb(255, 128, 0);
+                btn_eliminar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
 
-                    if (selectedRow.Cells["ID"].Value != null && selectedRow.Cells["Propietario"].Value != null)
-                    {
-                        // Acceder a los valores de las celdas de la fila seleccionada
-                        var ownerId = selectedRow.Cells["ID"].Value.ToString();
-                        var propietario = selectedRow.Cells["Propietario"].Value.ToString();
-
-                        // Mostrar los valores
-                        DialogResult result = MessageBox.Show($"Está seguro que desea eliminar al\npropietario  {propietario} con Id: {ownerId}", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                        if (result == DialogResult.Yes)
-                        {
-                            Conex.Open();
-                            SqlCommand Instruc = new SqlCommand("DELETE FROM ownerTable WHERE ownerId = " + ownerId, Conex);
-                            Instruc.ExecuteNonQuery();
-                            Conex.Close();
-                            MessageBox.Show("El propietario ha sido eliminado.", "Eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            BackBtnEliminar();
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Selecciona al propietario que desea eliminar.", "Eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                // ExecuteQry("DELETE FROM ownerTable WHERE ownerId = ", "eliminar", "eliminado");
             }
-        }
-
-        private void BackBtnEliminar()
-        {
-            gbx_table.Visible = false;
-            btn_guardar.Enabled = true;
-            btn_modificar.Enabled = true;
-            btn_cancelar.Visible = false;
-
-            btn_eliminar.BackColor = Color.White;
-            btn_eliminar.ForeColor = Color.FromArgb(255, 128, 0);
-            btn_eliminar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
         }
         #endregion
 
         #region Boton Modificar
         private void btn_modificar_Click(object sender, EventArgs e)
         {
-            if (btn_eliminar.BackColor == Color.White)
+            if (btn_modificar.Text == "Modificar")
             {
+                ClearRegister(); // Limpia las cajas de texto
+
                 gbx_table.Visible = true;
                 btn_guardar.Enabled = false;
                 btn_eliminar.Enabled = false;
-                btn_cancelar.Visible = true;
+                btn_modificar.Text = "Cancelar";
 
-                btn_modificar.BackColor = Color.Yellow;
-                btn_modificar.ForeColor = Color.Black;
+                btn_modificar.BackColor = Color.Gray;
+                btn_modificar.ForeColor = Color.White;
                 btn_modificar.FlatAppearance.BorderColor = Color.White;
 
                 ViewTable("SELECT ownerId AS ID, CONCAT(ownerName, ' ', ownerLastName) AS Propietario FROM ownerTable;");
             }
             else
             {
+                btn_modificar.Text = "Modificar";
+                gbx_table.Visible = false;
+                btn_guardar.Enabled = true;
+                btn_eliminar.Enabled = true;
 
+                btn_modificar.BackColor = Color.White;
+                btn_modificar.ForeColor = Color.FromArgb(255, 128, 0);
+                btn_modificar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
             }
-        }
-
-        private void BackBtnModificar()
-        {
-            gbx_table.Visible = false;
-            btn_guardar.Enabled = true;
-            btn_eliminar.Enabled = true;
-            btn_cancelar.Visible = false;
-
-            btn_modificar.BackColor = Color.White;
-            btn_modificar.ForeColor = Color.FromArgb(255, 128, 0);
-            btn_modificar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
         }
         #endregion
 
-        private void btn_cancelar_Click(object sender, EventArgs e)
+        #region Funciones Adicionales
+        public void ExecuteQry(string query, string title1, string title2)
         {
-            if (btn_eliminar.BackColor == Color.Red)
+            if (dgv_ownerTable.SelectedCells.Count > 0)
             {
-                BackBtnEliminar();
-            }
+                // Obtener la celda seleccionada
+                DataGridViewCell selectedCell = dgv_ownerTable.SelectedCells[0];
 
-            if (btn_modificar.BackColor == Color.Yellow)
+                // Obtener la fila correspondiente a la celda seleccionada
+                DataGridViewRow selectedRow = selectedCell.OwningRow;
+
+                if (selectedRow.Cells["ID"].Value != null && selectedRow.Cells["Propietario"].Value != null)
+                {
+                    // Acceder a los valores de las celdas de la fila seleccionada
+                    var ownerId = selectedRow.Cells["ID"].Value.ToString();
+                    var propietario = selectedRow.Cells["Propietario"].Value.ToString();
+
+                    // Mostrar los valores
+                    DialogResult result = MessageBox.Show($"Está seguro que desea {title1} al\npropietario  {propietario} con Id: {ownerId}", "Actualización de tabla", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (result == DialogResult.Yes)
+                    {
+                        Conex.Open();
+                        SqlCommand Instruc = new SqlCommand(query + ownerId, Conex);
+                        Instruc.ExecuteNonQuery();
+                        Conex.Close();
+                        MessageBox.Show($"El propietario ha sido {title2}.", "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
             {
-                BackBtnModificar();
+                MessageBox.Show("Selecciona a un propietario.", "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        #region Funciones Adicionales
+        private void dgv_ownerTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Obtén el valor de la celda seleccionada
+                var cellValue = dgv_ownerTable[e.ColumnIndex, e.RowIndex].Value;
+
+                if (cellValue != null)
+                {
+                    
+                }
+            }
+        }
+
         public void ViewTable(string query)
         {
             // Crear una conexión con la base de datos
