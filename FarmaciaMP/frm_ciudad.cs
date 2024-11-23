@@ -21,69 +21,85 @@ namespace FarmaciaMP
 
         SqlConnection Conex = new SqlConnection(ConexionSQL.conexioSql);
 
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (btn_eliminar.Text == "Eliminar")
+            {
+                // ClearRegister(); // Limpia las cajas de texto
+
+                gbx_table.Visible = true;
+                btn_guardar.Enabled = false;
+                btn_modificar.Enabled = false;
+                btn_eliminar.Text = "Cancelar";
+
+                btn_eliminar.BackColor = Color.Gray;
+                btn_eliminar.ForeColor = Color.White;
+                btn_eliminar.FlatAppearance.BorderColor = Color.White;
+
+                btn_deleteUpdate.Text = "Eliminar";
+                btn_deleteUpdate.BackColor = Color.Red;
+
+                // ViewTable();
+            }
+            else
+            {
+                btn_eliminar.Text = "Eliminar";
+                gbx_table.Visible = false;
+                btn_guardar.Enabled = true;
+                btn_modificar.Enabled = true;
+
+                btn_eliminar.BackColor = Color.White;
+                btn_eliminar.ForeColor = Color.FromArgb(255, 128, 0);
+                btn_eliminar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            }
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            if (btn_modificar.Text == "Modificar")
+            {
+                // ClearRegister(); // Limpia las cajas de texto
+
+                gbx_table.Visible = true;
+                btn_guardar.Enabled = false;
+                btn_eliminar.Enabled = false;
+                btn_modificar.Text = "Cancelar";
+
+                btn_modificar.BackColor = Color.Gray;
+                btn_modificar.ForeColor = Color.White;
+                btn_modificar.FlatAppearance.BorderColor = Color.White;
+
+                btn_deleteUpdate.Text = "Modificar";
+                btn_deleteUpdate.BackColor = Color.Orange;
+
+                // ViewTable();
+            }
+            else
+            {
+                // ClearRegister(); // Limpia las cajas de texto
+
+                btn_modificar.Text = "Modificar";
+                gbx_table.Visible = false;
+                btn_guardar.Enabled = true;
+                btn_eliminar.Enabled = true;
+
+                btn_modificar.BackColor = Color.White;
+                btn_modificar.ForeColor = Color.FromArgb(255, 128, 0);
+                btn_modificar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            }
+        }
+
+        #region Control de Ventanas
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             Form inicio = new pantalla_inicio();
             inicio.Show();
             this.Close();
-        }
-
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-            //ABRIENDO CONEXION CON LA BASE DE DAATOS
-            Conex.Open();
-            string cadena = "INSERT INTO regCiudad (idCiudad, ciudadReg, estadoReg, habReg, superReg) values (" + idCiudad.Text + ", '" + ciudadReg.Text + "', '" + estadoReg.Text + "', " + habReg.Text + ", " + superReg.Text + ")";
-            SqlCommand comando = new SqlCommand(cadena, Conex);
-            comando.ExecuteNonQuery();
-
-            MessageBox.Show("registro guardado con exito");
-
-            Conex.Close();
-
-            idCiudad.Clear();
-            ciudadReg.Clear();
-            estadoReg.Clear();
-            habReg.Clear();
-            superReg.Clear();
-        }
-
-        private void btn_eliminar_Click(object sender, EventArgs e)
-        {
-            Conex.Open();
-            string EliminarCd = "DELETE FROM regCiudad WHERE idCiudad = " + idCiudad.Text;
-
-            SqlCommand DeleteCd = new SqlCommand(EliminarCd, Conex);
-
-
-            DeleteCd.ExecuteNonQuery();
-
-            idCiudad.Clear();
-            Conex.Close();
-            MessageBox.Show("Registro de Ciudad eliminado correctamente.");
-        }
-
-        private void btn_modificar_Click(object sender, EventArgs e)
-        {
-            Conex.Open();
-            string consulta = "UPDATE regCiudad SET idCiudad =" + idCiudad.Text + ", ciudadReg ='" + ciudadReg.Text + "', estadoReg = '" + estadoReg.Text + "', habReg ="
-                + habReg.Text + ", superReg =" + superReg.Text + "WHERE idCiudad= " + idCiudad.Text;
-
-            SqlCommand comando = new SqlCommand(consulta, Conex);
-            int cantidad;
-            cantidad = comando.ExecuteNonQuery();
-
-            if (cantidad > 0)
-            {
-                MessageBox.Show("Registro modificado con exito");
-            }
-
-            Conex.Close();
-
-            idCiudad.Clear();
-            ciudadReg.Clear();
-            estadoReg.Clear();
-            habReg.Clear();
-            superReg.Clear();
         }
 
         private void btn_propietario_Click(object sender, EventArgs e)
@@ -113,5 +129,6 @@ namespace FarmaciaMP
             consulta.Show();
             this.Close();
         }
+        #endregion
     }
 }
