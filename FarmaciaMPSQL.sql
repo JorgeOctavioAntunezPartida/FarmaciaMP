@@ -60,3 +60,17 @@ SELECT * FROM inventoryTable
 
 DELETE FROM ownerTable
 DBCC CHECKIDENT ('ownerTable', RESEED, 0);
+
+--[PRUEBA DE PROPIETARIOS]
+INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)
+VALUES
+('John', 'Doe', 'M', '1234567890', 'john.doe@gmail.com'),
+('Jane', 'Smith', 'F', '9876543210', 'jane.smith@gmail.com'),
+('Carlos', 'Martínez', 'M', '5552345678', 'carlos.martinez@gmail.com'),
+('Laura', 'González', 'F', '4447651234', 'laura.gonzalez@gmail.com'),
+('Ahmed', 'Khan', 'M', '1112223333', 'ahmed.khan@gmail.com'),
+('Emily', 'Clark', 'F', '3334445555', 'emily.clark@gmail.com'),
+('Miguel', 'Torres', 'M', '2223334444', 'miguel.torres@gmail.com'),
+('Sofia', 'Lopez', 'F', '6667778888', 'sofia.lopez@gmail.com'),
+('David', 'Brown', 'M', '9998887777', 'david.brown@gmail.com'),
+('Lucia', 'Hernández', 'F', '8887776666', 'lucia.hernandez@gmail.com');

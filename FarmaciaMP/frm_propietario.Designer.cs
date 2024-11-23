@@ -50,6 +50,7 @@
             this.gbx_insert = new System.Windows.Forms.GroupBox();
             this.gbx_table = new System.Windows.Forms.GroupBox();
             this.dgv_ownerTable = new System.Windows.Forms.DataGridView();
+            this.btn_deleteUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.gbx_insert.SuspendLayout();
             this.gbx_table.SuspendLayout();
@@ -306,6 +307,7 @@
             // 
             // gbx_table
             // 
+            this.gbx_table.Controls.Add(this.btn_deleteUpdate);
             this.gbx_table.Controls.Add(this.dgv_ownerTable);
             this.gbx_table.Location = new System.Drawing.Point(230, 264);
             this.gbx_table.Name = "gbx_table";
@@ -325,7 +327,21 @@
             this.dgv_ownerTable.ReadOnly = true;
             this.dgv_ownerTable.Size = new System.Drawing.Size(308, 198);
             this.dgv_ownerTable.TabIndex = 0;
-            this.dgv_ownerTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ownerTable_CellContentClick);
+            // 
+            // btn_deleteUpdate
+            // 
+            this.btn_deleteUpdate.BackColor = System.Drawing.Color.Gray;
+            this.btn_deleteUpdate.FlatAppearance.BorderSize = 2;
+            this.btn_deleteUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deleteUpdate.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_deleteUpdate.ForeColor = System.Drawing.Color.White;
+            this.btn_deleteUpdate.Location = new System.Drawing.Point(6, 224);
+            this.btn_deleteUpdate.Name = "btn_deleteUpdate";
+            this.btn_deleteUpdate.Size = new System.Drawing.Size(100, 50);
+            this.btn_deleteUpdate.TabIndex = 20;
+            this.btn_deleteUpdate.Text = "...";
+            this.btn_deleteUpdate.UseVisualStyleBackColor = false;
+            this.btn_deleteUpdate.Click += new System.EventHandler(this.btn_deleteUpdate_Click);
             // 
             // frm_propietario
             // 
@@ -384,5 +400,6 @@
         private System.Windows.Forms.GroupBox gbx_insert;
         private System.Windows.Forms.GroupBox gbx_table;
         private System.Windows.Forms.DataGridView dgv_ownerTable;
+        private System.Windows.Forms.Button btn_deleteUpdate;
     }
 }

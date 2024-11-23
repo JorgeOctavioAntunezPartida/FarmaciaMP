@@ -24,10 +24,27 @@ namespace FarmaciaMP
         }
 
         SqlConnection Conex = new SqlConnection(ConexionSQL.conexioSql);
+        int updateId = 0;
 
         #region Boton Guardar
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            string consulta;
+            string mssj;
+
+            if (btn_modificar.Text == "Modificar")
+            {
+                consulta = "INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)" +
+                      " VALUES (@Name, @LastName, @Gender, @PhoneNumber, @Gmail);";
+                mssj = "Nuevo propietario agregado: ";
+            }
+            else
+            {
+                consulta = "UPDATE ownerTable SET ownerName = @Name, ownerLastName = @LastName, ownerGender = @Gender, ownerPhoneNumber = @PhoneNumber, ownerGmail = @Gmail" +
+                    " WHERE ownerId = " + updateId.ToString();
+                mssj = "Actualización de propietario: ";
+            }
+
             char gender;
             string cleanNumber;
 
@@ -37,9 +54,6 @@ namespace FarmaciaMP
                 cleanNumber = Regex.Replace(txt_ownerPhoneNumber.Text, @"\s+", "");
 
                 Conex.Open();
-
-                string consulta = "INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)" +
-                      " VALUES (@Name, @LastName, @Gender, @PhoneNumber, @Gmail);";
 
                 using (SqlCommand comando = new SqlCommand(consulta, Conex))
                 {
@@ -53,11 +67,18 @@ namespace FarmaciaMP
                     comando.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Nuevo propietario agregado: " + txt_ownerName.Text, "Registro almacenado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(mssj + txt_ownerName.Text, "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Conex.Close();
 
                 ClearRegister(); // Limpia las cajas de texto
+                btn_eliminar.Enabled = true;
+                btn_modificar.Enabled = true;
+
+                btn_modificar.Text = "Modificar";
+                btn_modificar.BackColor = Color.White;
+                btn_modificar.ForeColor = Color.FromArgb(255, 128, 0);
+                btn_modificar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
             }
         }
         #endregion
@@ -78,7 +99,10 @@ namespace FarmaciaMP
                 btn_eliminar.ForeColor = Color.White;
                 btn_eliminar.FlatAppearance.BorderColor = Color.White;
 
-                ViewTable("SELECT ownerId AS ID, CONCAT(ownerName, ' ', ownerLastName) AS Propietario FROM ownerTable;");
+                btn_deleteUpdate.Text = "Eliminar";
+                btn_deleteUpdate.BackColor = Color.Red;
+
+                ViewTable();
             }
             else
             {
@@ -90,8 +114,6 @@ namespace FarmaciaMP
                 btn_eliminar.BackColor = Color.White;
                 btn_eliminar.ForeColor = Color.FromArgb(255, 128, 0);
                 btn_eliminar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
-
-                // ExecuteQry("DELETE FROM ownerTable WHERE ownerId = ", "eliminar", "eliminado");
             }
         }
         #endregion
@@ -112,10 +134,15 @@ namespace FarmaciaMP
                 btn_modificar.ForeColor = Color.White;
                 btn_modificar.FlatAppearance.BorderColor = Color.White;
 
-                ViewTable("SELECT ownerId AS ID, CONCAT(ownerName, ' ', ownerLastName) AS Propietario FROM ownerTable;");
+                btn_deleteUpdate.Text = "Modificar";
+                btn_deleteUpdate.BackColor = Color.Orange;
+
+                ViewTable();
             }
             else
             {
+                ClearRegister(); // Limpia las cajas de texto
+
                 btn_modificar.Text = "Modificar";
                 gbx_table.Visible = false;
                 btn_guardar.Enabled = true;
@@ -128,8 +155,24 @@ namespace FarmaciaMP
         }
         #endregion
 
+        #region Boton DeleteUpdate
+        private void btn_deleteUpdate_Click(object sender, EventArgs e)
+        {
+            if (btn_deleteUpdate.Text == "Eliminar")
+            {
+                ExecuteDelete();
+                ViewTable();
+            }
+
+            if (btn_deleteUpdate.Text == "Modificar")
+            {
+                ExecuteUpdate();
+            }
+        }
+        #endregion
+
         #region Funciones Adicionales
-        public void ExecuteQry(string query, string title1, string title2)
+        public void ExecuteDelete()
         {
             if (dgv_ownerTable.SelectedCells.Count > 0)
             {
@@ -146,14 +189,14 @@ namespace FarmaciaMP
                     var propietario = selectedRow.Cells["Propietario"].Value.ToString();
 
                     // Mostrar los valores
-                    DialogResult result = MessageBox.Show($"Está seguro que desea {title1} al\npropietario  {propietario} con Id: {ownerId}", "Actualización de tabla", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    DialogResult result = MessageBox.Show($"Está seguro que desea eliminar al\npropietario  {propietario} con Id: {ownerId}", "Actualización de tabla", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (result == DialogResult.Yes)
                     {
                         Conex.Open();
-                        SqlCommand Instruc = new SqlCommand(query + ownerId, Conex);
+                        SqlCommand Instruc = new SqlCommand("DELETE FROM ownerTable WHERE ownerId = " + ownerId, Conex);
                         Instruc.ExecuteNonQuery();
                         Conex.Close();
-                        MessageBox.Show($"El propietario ha sido {title2}.", "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El propietario ha sido eliminado.", "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -163,21 +206,67 @@ namespace FarmaciaMP
             }
         }
 
-        private void dgv_ownerTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void ExecuteUpdate()
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (dgv_ownerTable.SelectedCells.Count > 0)
             {
-                // Obtén el valor de la celda seleccionada
-                var cellValue = dgv_ownerTable[e.ColumnIndex, e.RowIndex].Value;
+                // Obtener la celda seleccionada
+                DataGridViewCell selectedCell = dgv_ownerTable.SelectedCells[0];
 
-                if (cellValue != null)
+                // Obtener la fila correspondiente a la celda seleccionada
+                DataGridViewRow selectedRow = selectedCell.OwningRow;
+
+                if (selectedRow.Cells["ID"].Value != null)
                 {
-                    
+                    // Acceder a los valores de las celdas de la fila seleccionada
+                    var ownerId = selectedRow.Cells["ID"].Value.ToString();
+                    updateId = int.Parse(ownerId);
+
+                    gbx_table.Visible = false;
+                    btn_guardar.Enabled = true;
+
+                    Conex.Open();
+
+                    string consulta = "SELECT * FROM ownerTable WHERE ownerId = @ownerId";
+
+                    using (SqlCommand comando = new SqlCommand(consulta, Conex))
+                    {
+                        // Parámetro para la consulta
+                        comando.Parameters.AddWithValue("@ownerId", ownerId);
+
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read()) // Lee el registro (si existe)
+                            {
+                                // Obtén los valores de las columnas
+                                string ownerName = reader.GetString(1);
+                                string ownerLastName = reader.GetString(2);
+                                char ownerGender = reader.GetString(3)[0];
+                                string ownerPhoneNumber = reader.IsDBNull(4) ? null : reader.GetString(4);
+                                string ownerGmail = reader.IsDBNull(5) ? null : reader.GetString(5);
+
+                                txt_ownerName.Text = ownerName;
+                                txt_ownerLastName.Text = ownerLastName;
+                                cbx_ownerGender.SelectedIndex = ownerGender == 'H' ? 0 : 1;
+                                txt_ownerPhoneNumber.Text = ownerPhoneNumber;
+                                txt_ownerGmail.Text = ownerGmail;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró ningún registro con ese ID.", "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                    Conex.Close();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona a un propietario.", "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        public void ViewTable(string query)
+        public void ViewTable()
         {
             // Crear una conexión con la base de datos
             using (SqlConnection connection = new SqlConnection(ConexionSQL.conexioSql))
@@ -188,7 +277,7 @@ namespace FarmaciaMP
                     connection.Open();
 
                     // Crear un adaptador de datos SQL para ejecutar la consulta
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT ownerId AS ID, CONCAT(ownerName, ' ', ownerLastName) AS Propietario FROM ownerTable;", connection);
 
                     // Crear una tabla de datos para almacenar los resultados
                     DataTable dataTable = new DataTable();
