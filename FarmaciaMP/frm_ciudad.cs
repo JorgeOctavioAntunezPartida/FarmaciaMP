@@ -30,7 +30,7 @@ namespace FarmaciaMP
         {
             if (btn_eliminar.Text == "Eliminar")
             {
-                // ClearRegister(); // Limpia las cajas de texto
+                ClearRegister(); // Limpia las cajas de texto
 
                 gbx_table.Visible = true;
                 btn_guardar.Enabled = false;
@@ -44,7 +44,7 @@ namespace FarmaciaMP
                 btn_deleteUpdate.Text = "Eliminar";
                 btn_deleteUpdate.BackColor = Color.Red;
 
-                // ViewTable();
+                ViewTable();
             }
             else
             {
@@ -63,7 +63,7 @@ namespace FarmaciaMP
         {
             if (btn_modificar.Text == "Modificar")
             {
-                // ClearRegister(); // Limpia las cajas de texto
+                ClearRegister(); // Limpia las cajas de texto
 
                 gbx_table.Visible = true;
                 btn_guardar.Enabled = false;
@@ -77,11 +77,11 @@ namespace FarmaciaMP
                 btn_deleteUpdate.Text = "Modificar";
                 btn_deleteUpdate.BackColor = Color.Orange;
 
-                // ViewTable();
+                ViewTable();
             }
             else
             {
-                // ClearRegister(); // Limpia las cajas de texto
+                ClearRegister(); // Limpia las cajas de texto
 
                 btn_modificar.Text = "Modificar";
                 gbx_table.Visible = false;
@@ -93,6 +93,54 @@ namespace FarmaciaMP
                 btn_modificar.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
             }
         }
+
+        #region Funciones Adicionales
+        public void ViewTable()
+        {
+            // Crear una conexión con la base de datos
+            using (SqlConnection connection = new SqlConnection(ConexionSQL.conexioSql))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connection.Open();
+
+                    // Crear un adaptador de datos SQL para ejecutar la consulta
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT locationId AS ID, CONCAT(locationCity, '-', locationAddress) AS Ubicación FROM locationTable;", connection);
+
+                    // Crear una tabla de datos para almacenar los resultados
+                    DataTable dataTable = new DataTable();
+
+                    // Llenar la tabla con los resultados de la consulta
+                    dataAdapter.Fill(dataTable);
+
+                    // Establecer el origen de datos del DataGridView a la tabla de datos
+                    dgv_locationTable.DataSource = dataTable;
+
+                    dgv_locationTable.Columns["ID"].Width = 50;
+                    dgv_locationTable.Columns["Ubicación"].Width = 200;
+                    dgv_locationTable.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 12);
+                    dgv_locationTable.DefaultCellStyle.Font = new Font("Verdana", 12);
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de errores
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        public void ClearRegister()
+        {
+            txt_locationAddress.Clear();
+            txt_locationCity.Clear();
+            cbx_locationState.SelectedIndex = -1;
+        }
+        #endregion
+
+        #region Validacion
+
+        #endregion
 
         #region Control de Ventanas
         private void btn_inicio_Click(object sender, EventArgs e)

@@ -46,9 +46,12 @@
             this.gbx_insert = new System.Windows.Forms.GroupBox();
             this.btn_deleteUpdate = new System.Windows.Forms.Button();
             this.gbx_table = new System.Windows.Forms.GroupBox();
+            this.dgv_locationTable = new System.Windows.Forms.DataGridView();
+            this.cbx_filter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.gbx_insert.SuspendLayout();
             this.gbx_table.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_locationTable)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_inicio
@@ -297,12 +300,14 @@
             this.btn_deleteUpdate.Location = new System.Drawing.Point(6, 224);
             this.btn_deleteUpdate.Name = "btn_deleteUpdate";
             this.btn_deleteUpdate.Size = new System.Drawing.Size(100, 50);
-            this.btn_deleteUpdate.TabIndex = 37;
+            this.btn_deleteUpdate.TabIndex = 1;
             this.btn_deleteUpdate.Text = "...";
             this.btn_deleteUpdate.UseVisualStyleBackColor = false;
             // 
             // gbx_table
             // 
+            this.gbx_table.Controls.Add(this.cbx_filter);
+            this.gbx_table.Controls.Add(this.dgv_locationTable);
             this.gbx_table.Controls.Add(this.btn_deleteUpdate);
             this.gbx_table.Location = new System.Drawing.Point(230, 264);
             this.gbx_table.Name = "gbx_table";
@@ -310,6 +315,59 @@
             this.gbx_table.TabIndex = 12;
             this.gbx_table.TabStop = false;
             this.gbx_table.Visible = false;
+            // 
+            // dgv_locationTable
+            // 
+            this.dgv_locationTable.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_locationTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_locationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_locationTable.Location = new System.Drawing.Point(6, 18);
+            this.dgv_locationTable.Name = "dgv_locationTable";
+            this.dgv_locationTable.Size = new System.Drawing.Size(308, 198);
+            this.dgv_locationTable.TabIndex = 0;
+            // 
+            // cbx_filter
+            // 
+            this.cbx_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_filter.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_filter.FormattingEnabled = true;
+            this.cbx_filter.Items.AddRange(new object[] {
+            "Aguascalientes",
+            "Baja California",
+            "Baja California Sur",
+            "Campeche",
+            "Chiapas",
+            "Chihuahua",
+            "Ciudad de México",
+            "Coahuila",
+            "Colima",
+            "Durango",
+            "Guanajuato",
+            "Guerrero",
+            "Hidalgo",
+            "Jalisco",
+            "México (Estado de México)",
+            "Michoacán",
+            "Morelos",
+            "Nayarit",
+            "Nuevo León",
+            "Oaxaca",
+            "Puebla",
+            "Querétaro",
+            "Quintana Roo",
+            "San Luis Potosí",
+            "Sinaloa",
+            "Sonora",
+            "Tabasco",
+            "Tamaulipas",
+            "Tlaxcala",
+            "Veracruz",
+            "Yucatán",
+            "Zacatecas"});
+            this.cbx_filter.Location = new System.Drawing.Point(112, 245);
+            this.cbx_filter.Name = "cbx_filter";
+            this.cbx_filter.Size = new System.Drawing.Size(202, 26);
+            this.cbx_filter.TabIndex = 2;
             // 
             // frm_ciudad
             // 
@@ -339,6 +397,7 @@
             this.gbx_insert.ResumeLayout(false);
             this.gbx_insert.PerformLayout();
             this.gbx_table.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_locationTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -363,5 +422,7 @@
         private System.Windows.Forms.GroupBox gbx_insert;
         private System.Windows.Forms.Button btn_deleteUpdate;
         private System.Windows.Forms.GroupBox gbx_table;
+        private System.Windows.Forms.DataGridView dgv_locationTable;
+        private System.Windows.Forms.ComboBox cbx_filter;
     }
 }

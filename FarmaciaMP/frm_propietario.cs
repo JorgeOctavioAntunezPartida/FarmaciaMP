@@ -32,13 +32,13 @@ namespace FarmaciaMP
             string consulta;
             string mssj;
 
-            if (btn_modificar.Text == "Modificar")
+            if (btn_modificar.Text == "Modificar") // Cargar un nuevo registro
             {
                 consulta = "INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)" +
                       " VALUES (@Name, @LastName, @Gender, @PhoneNumber, @Gmail);";
                 mssj = "Nuevo propietario agregado: ";
             }
-            else
+            else                                   // Actualizar un registro
             {
                 consulta = "UPDATE ownerTable SET ownerName = @Name, ownerLastName = @LastName, ownerGender = @Gender, ownerPhoneNumber = @PhoneNumber, ownerGmail = @Gmail" +
                     " WHERE ownerId = " + updateId.ToString();

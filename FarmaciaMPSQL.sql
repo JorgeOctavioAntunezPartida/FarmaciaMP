@@ -74,3 +74,28 @@ VALUES
 ('Sofia', 'Lopez', 'F', '6667778888', 'sofia.lopez@gmail.com'),
 ('David', 'Brown', 'M', '9998887777', 'david.brown@gmail.com'),
 ('Lucia', 'Hernández', 'F', '8887776666', 'lucia.hernandez@gmail.com');
+
+--[PRUEBA DE UBICACIONES]
+INSERT INTO locationTable (locationAddress, locationCity, locationState)
+VALUES
+('Calle Reforma #123', 'Ciudad de México', 'Ciudad de México'),
+('Av. Universidad #456', 'Guadalajara', 'Jalisco'),
+('Calle Hidalgo #789', 'Monterrey', 'Nuevo León'),
+('Boulevard Díaz Ordaz #321', 'Tijuana', 'Baja California'),
+('Calle Morelos #654', 'Cancún', 'Quintana Roo'),
+('Av. Juárez #111', 'Puebla', 'Puebla'),
+('Calle Independencia #222', 'Mérida', 'Yucatán'),
+('Boulevard Benito Juárez #333', 'Chihuahua', 'Chihuahua'),
+('Calle Zaragoza #444', 'Toluca', 'Estado de México'),
+('Av. López Mateos #555', 'Aguascalientes', 'Aguascalientes'),
+('Calle Insurgentes #666', 'Querétaro', 'Querétaro'),
+('Av. Colón #777', 'Veracruz', 'Veracruz'),
+('Calle Victoria #888', 'Villahermosa', 'Tabasco'),
+('Boulevard Hidalgo #999', 'San Luis Potosí', 'San Luis Potosí'),
+('Calle Matamoros #121', 'Saltillo', 'Coahuila'),
+('Av. Constitución #343', 'Tepic', 'Nayarit'),
+('Calle Morelos #565', 'Tuxtla Gutiérrez', 'Chiapas'),
+('Boulevard Reforma #787', 'Culiacán', 'Sinaloa'),
+('Calle Juárez #909', 'Zacatecas', 'Zacatecas'),
+('Av. Independencia #141', 'La Paz', 'Baja California Sur');
+
