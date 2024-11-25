@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,19 +14,26 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FarmaciaMP
 {
+
     public partial class frm_consulta : Form
     {
+        SqlConnection conexion = new SqlConnection("server=DESKTOP-D739HSR\\WINNEMAN; database=FarmaciasMP; integrated security=true");
+        //string connectionString = "Server=TU_SERVIDOR;Database=FarmaciasMP;User Id=TU_USUARIO;Password=TU_CONTRASEÑA;";
+
         public frm_consulta()
         {
             InitializeComponent();
         }
-
+       
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             Form inicio = new pantalla_inicio();
             inicio.Show();
             this.Close();
         }
+        //
+       
+
 
         private void btn_mostrar_Click(object sender, EventArgs e)
         {
@@ -119,6 +127,20 @@ namespace FarmaciaMP
             Form ciudad = new frm_ciudad();
             ciudad.Show();
             this.Close();
+        }
+        //vistas
+        private void frm_consulta_Load(object sender, EventArgs e)
+        {
+            string consulta_owner= "SELECT * FROM ownerTable";
+            SqlDataAdapter adaptadorOwner = new SqlDataAdapter(consulta_owner, conexion);
+            DataTable dt = new DataTable();
+            adaptadorOwner.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void cbx_tablas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

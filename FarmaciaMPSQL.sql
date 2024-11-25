@@ -99,3 +99,68 @@ VALUES
 ('Calle Juárez #909', 'Zacatecas', 'Zacatecas'),
 ('Av. Independencia #141', 'La Paz', 'Baja California Sur');
 
+
+-- CREAR VISTA DESDE LA TABLA PROPIETARIOS
+CREATE VIEW vw_ownerDetails AS
+SELECT 
+    ownerId AS ID,
+    CONCAT(ownerName, ' ', ownerLastName) AS FullName,
+    ownerGender AS Gender,
+    ownerPhoneNumber AS Phone,
+    ownerGmail AS Email
+FROM ownerTable;
+
+SELECT * FROM vw_ownerDetails;
+
+
+--CREAR VISTA DESDE LA TABLA PARA VER LA UBICACIONES DE LAS FARMACIAS
+CREATE VIEW vw_localizacionFarmacias AS
+SELECT 
+    locationId AS ID,
+    CONCAT(locationAddress, ', ', locationCity, ', ', locationState) AS FullAddress
+FROM locationTable;
+
+
+SELECT * FROM vw_localizacionFarmacias;
+
+--VISTA EN LA QUE SE PUEDE VER LA DIRECCION DE LOS PROPIETARIOS
+CREATE VIEW propietarios_direcciones AS
+SELECT 
+    p.pharmacyId AS PharmacyID,
+    p.pharmacyName AS PharmacyName,
+    CONCAT(o.ownerName, ' ', o.ownerLastName) AS OwnerName,
+    CONCAT(l.locationAddress, ', ', l.locationCity, ', ', l.locationState) AS Location
+FROM pharmacyTable p
+INNER JOIN ownerTable o ON p.ownerId = o.ownerId
+INNER JOIN locationTable l ON p.locationId = l.locationId;
+
+SELECT * FROM propietarios_direcciones
+
+--INVENTARIO DE MEDICAMENTO EN FARMACIAS
+CREATE VIEW inventario_farmacias AS
+SELECT 
+    p.pharmacyName AS Pharmacy,
+    m.medicineName AS Medicine,
+    i.stock AS Stock
+FROM inventoryTable i
+INNER JOIN pharmacyTable p ON i.pharmacyId = p.pharmacyId
+INNER JOIN medicineTable m ON i.medicineId = m.medicineId;
+
+SELECT * FROM inventario_farmacias;
+
+--vista global de farmacias para todos lo datos en base de datos
+CREATE VIEW Pharmacy_infoData AS
+SELECT 
+    p.pharmacyName AS Pharmacy,
+    CONCAT(o.ownerName, ' ', o.ownerLastName) AS Owner,
+    CONCAT(l.locationAddress, ', ', l.locationCity, ', ', l.locationState) AS Location,
+    m.medicineName AS Medicine,
+    i.stock AS Stock
+FROM pharmacyTable p
+INNER JOIN ownerTable o ON p.ownerId = o.ownerId
+INNER JOIN locationTable l ON p.locationId = l.locationId
+INNER JOIN inventoryTable i ON p.pharmacyId = i.pharmacyId
+INNER JOIN medicineTable m ON i.medicineId = m.medicineId;
+
+SELECT * FROM Pharmacy_infoData;
+

@@ -35,9 +35,9 @@
             this.btn_farmacia = new System.Windows.Forms.Button();
             this.btn_propietario = new System.Windows.Forms.Button();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
-            this.cbx_tablas = new System.Windows.Forms.ComboBox();
             this.lbl_menu = new System.Windows.Forms.Label();
             this.btn_mostrar = new System.Windows.Forms.Button();
+            this.cbx_tablas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
@@ -137,23 +137,6 @@
             this.dgv_tabla.Size = new System.Drawing.Size(572, 258);
             this.dgv_tabla.TabIndex = 39;
             // 
-            // cbx_tablas
-            // 
-            this.cbx_tablas.BackColor = System.Drawing.Color.White;
-            this.cbx_tablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_tablas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_tablas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_tablas.FormattingEnabled = true;
-            this.cbx_tablas.Items.AddRange(new object[] {
-            "Propietarios",
-            "Farmacias",
-            "Medicamentos",
-            "Ciudades"});
-            this.cbx_tablas.Location = new System.Drawing.Point(622, 578);
-            this.cbx_tablas.Name = "cbx_tablas";
-            this.cbx_tablas.Size = new System.Drawing.Size(150, 26);
-            this.cbx_tablas.TabIndex = 40;
-            // 
             // lbl_menu
             // 
             this.lbl_menu.AutoSize = true;
@@ -180,6 +163,24 @@
             this.btn_mostrar.UseVisualStyleBackColor = true;
             this.btn_mostrar.Click += new System.EventHandler(this.btn_mostrar_Click);
             // 
+            // cbx_tablas
+            // 
+            this.cbx_tablas.BackColor = System.Drawing.Color.White;
+            this.cbx_tablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_tablas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_tablas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_tablas.FormattingEnabled = true;
+            this.cbx_tablas.Items.AddRange(new object[] {
+            "Propietarios",
+            "Farmacias",
+            "Medicamentos",
+            "Ciudades"});
+            this.cbx_tablas.Location = new System.Drawing.Point(622, 578);
+            this.cbx_tablas.Name = "cbx_tablas";
+            this.cbx_tablas.Size = new System.Drawing.Size(150, 26);
+            this.cbx_tablas.TabIndex = 40;
+            this.cbx_tablas.SelectedIndexChanged += new System.EventHandler(this.cbx_tablas_SelectedIndexChanged);
+            // 
             // frm_consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +202,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultas";
+            this.Load += new System.EventHandler(this.frm_consulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.ResumeLayout(false);
@@ -217,8 +219,8 @@
         private System.Windows.Forms.Button btn_farmacia;
         private System.Windows.Forms.Button btn_propietario;
         private System.Windows.Forms.DataGridView dgv_tabla;
-        private System.Windows.Forms.ComboBox cbx_tablas;
         private System.Windows.Forms.Label lbl_menu;
         private System.Windows.Forms.Button btn_mostrar;
+        private System.Windows.Forms.ComboBox cbx_tablas;
     }
 }
