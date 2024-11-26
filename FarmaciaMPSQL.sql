@@ -148,7 +148,8 @@ INNER JOIN medicineTable m ON i.medicineId = m.medicineId;
 
 SELECT * FROM inventario_farmacias;
 
---vista global de farmacias para todos lo datos en base de datos
+--vista global de farmacias para todos lo datos en base de datoS
+--CONSULTA USANDO INNER JOIN RELACIONANDO LA TABLA DE PROPIETARIO, LOCALIZACION, INVENTARIO DE MEDICAMENTOS
 CREATE VIEW Pharmacy_infoData AS
 SELECT 
     p.pharmacyName AS Pharmacy,
@@ -164,3 +165,92 @@ INNER JOIN medicineTable m ON i.medicineId = m.medicineId;
 
 SELECT * FROM Pharmacy_infoData;
 
+-- Método para consultar ownerTable en orden ascendente y descendente
+CREATE PROCEDURE GetOwnerTableData(@orderDirection NVARCHAR(4))
+AS
+BEGIN
+    IF @orderDirection = 'ASC'
+        SELECT * FROM ownerTable ORDER BY ownerId ASC;
+    ELSE IF @orderDirection = 'DESC'
+        SELECT * FROM ownerTable ORDER BY ownerId DESC;
+    ELSE
+        PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
+END;
+
+-- Método para consultar locationTable en orden ascendente y descendente
+CREATE PROCEDURE GetLocationTableData(@orderDirection NVARCHAR(4))
+AS
+BEGIN
+    IF @orderDirection = 'ASC'
+        SELECT * FROM locationTable ORDER BY locationId ASC;
+    ELSE IF @orderDirection = 'DESC'
+        SELECT * FROM locationTable ORDER BY locationId DESC;
+    ELSE
+        PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
+END;
+
+-- Método para consultar pharmacyTable en orden ascendente y descendente
+CREATE PROCEDURE GetPharmacyTableData(@orderDirection NVARCHAR(4))
+AS
+BEGIN
+    IF @orderDirection = 'ASC'
+        SELECT * FROM pharmacyTable ORDER BY pharmacyId ASC;
+    ELSE IF @orderDirection = 'DESC'
+        SELECT * FROM pharmacyTable ORDER BY pharmacyId DESC;
+    ELSE
+        PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
+END;
+
+-- Método para consultar medicineTable en orden ascendente y descendente
+CREATE PROCEDURE GetMedicineTableData(@orderDirection NVARCHAR(4))
+AS
+BEGIN
+    IF @orderDirection = 'ASC'
+        SELECT * FROM medicineTable ORDER BY medicineId ASC;
+    ELSE IF @orderDirection = 'DESC'
+        SELECT * FROM medicineTable ORDER BY medicineId DESC;
+    ELSE
+        PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
+END;
+
+-- Método para consultar inventoryTable en orden ascendente y descendente
+CREATE PROCEDURE GetInventoryTableData(@orderDirection NVARCHAR(4))
+AS
+BEGIN
+    IF @orderDirection = 'ASC'
+        SELECT * FROM inventoryTable ORDER BY pharmacyId ASC, medicineId ASC;
+    ELSE IF @orderDirection = 'DESC'
+        SELECT * FROM inventoryTable ORDER BY pharmacyId DESC, medicineId DESC;
+    ELSE
+        PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
+END;
+
+-- Consultar ownerTable en orden ascendente
+EXEC GetOwnerTableData 'ASC';
+
+-- Consultar ownerTable en orden descendente
+EXEC GetOwnerTableData 'DESC';
+
+-- Consultar locationTable en orden ascendente
+EXEC GetLocationTableData 'ASC';
+
+-- Consultar locationTable en orden descendente
+EXEC GetLocationTableData 'DESC';
+
+-- Consultar pharmacyTable en orden ascendente
+EXEC GetPharmacyTableData 'ASC';
+
+-- Consultar pharmacyTable en orden descendente
+EXEC GetPharmacyTableData 'DESC';
+
+-- Consultar medicineTable en orden ascendente
+EXEC GetMedicineTableData 'ASC';
+
+-- Consultar medicineTable en orden descendente
+EXEC GetMedicineTableData 'DESC';
+
+-- Consultar inventoryTable en orden ascendente
+EXEC GetInventoryTableData 'ASC';
+
+-- Consultar inventoryTable en orden descendente
+EXEC GetInventoryTableData 'DESC';
