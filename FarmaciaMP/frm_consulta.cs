@@ -17,14 +17,46 @@ namespace FarmaciaMP
 
     public partial class frm_consulta : Form
     {
-        SqlConnection conexion = new SqlConnection("server=DESKTOP-D739HSR\\WINNEMAN; database=FarmaciasMP; integrated security=true");
+        private string conexion = "server=DESKTOP-D739HSR\\WINNEMAN; database=FarmaciasMP; integrated security=true";
         //string connectionString = "Server=TU_SERVIDOR;Database=FarmaciasMP;User Id=TU_USUARIO;Password=TU_CONTRASEÑA;";
 
+        //conaatructor
         public frm_consulta()
         {
             InitializeComponent();
         }
-       
+        //LLADAMA AL METODO LOAD DATA PARA CARGAR EL PROCEDIMIENTO ALMACENADO
+        private void loadDAta(string procedData, string orderDirection)
+        {
+            try
+            {
+                //ACCEDIENDO A LA BASE DE DATOS Y CREANDO UNA CONEXION LLAMADA PROCEDIMIENTO
+                using (SqlConnection procedimiento = new SqlConnection(conexion))
+                {
+                    //SE ABRE LA CONEXION PROCEDIMIENTO
+                    procedimiento.Open();
+
+                    //SE CREA UN COMANDO DE SQL Y SE LE AGREGAN LOS VALORES DEL METODO 
+                    using (SqlCommand cmd = new SqlCommand(procedData, procedimiento))
+                    {
+                        //SE CREA COMANDO Y SE LE ASGINA UN VALOR PROCEDIMIENTO Y EL NOMBRE DEL PROCEDIMIENTO ALMACENDO EN SQL
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue(@orderDirection, orderDirection);
+
+                        //RELLENO DE TABLA EN EL FORM DESDE SQL
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView1.DataSource = table;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error:{ex.Message}", "Error");
+            }
+        }
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             Form inicio = new pantalla_inicio();
@@ -32,73 +64,12 @@ namespace FarmaciaMP
             this.Close();
         }
         //
-       
-
 
         private void btn_mostrar_Click(object sender, EventArgs e)
         {
-            string tabla = "regProp";
-
-            if (cbx_tablas.SelectedIndex == -1)
-            {
-                // Si no hay ningún elemento seleccionado, muestra un mensaje de advertencia
-                MessageBox.Show("No hay ningún elemento seleccionado. Por favor, selecciona uno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                switch (cbx_tablas.SelectedIndex)
-                {
-                    case 0:
-                        tabla = "regProp";
-                        break;
-
-                    case 1:
-                        tabla = "regFarmacia";
-                        break;
-
-                    case 2:
-                        tabla = "regMedicamento";
-                        break;
-
-                    case 3:
-                        tabla = "regCiudad";
-                        break;
-
-                    default:
-                        tabla = "regProp";
-                        break;
-                }
-
-                // Consulta SQL para obtener los datos de la tabla
-                string query = "SELECT * FROM " + tabla;
-
-                // Crear una conexión con la base de datos
-                using (SqlConnection connection = new SqlConnection(ConexionSQL.conexioSql))
-                {
-                    try
-                    {
-                        // Abrir la conexión
-                        connection.Open();
-
-                        // Crear un adaptador de datos SQL para ejecutar la consulta
-                        SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
-
-                        // Crear una tabla de datos para almacenar los resultados
-                        DataTable dataTable = new DataTable();
-
-                        // Llenar la tabla con los resultados de la consulta
-                        dataAdapter.Fill(dataTable);
-
-                        // Establecer el origen de datos del DataGridView a la tabla de datos
-                        dgv_tabla.DataSource = dataTable;
-                    }
-                    catch (Exception ex)
-                    {
-                        // Manejo de errores
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-            }
+            string procedureName = comboBox.SelectedItem.ToString();
+            string orderDirection = comboBox.SelectedItem.ToString();
+            LoadData(procedureName, orderDirection);
         }
 
         private void btn_propietario_Click(object sender, EventArgs e)
@@ -131,16 +102,55 @@ namespace FarmaciaMP
         //vistas
         private void frm_consulta_Load(object sender, EventArgs e)
         {
-            string consulta_owner= "SELECT * FROM ownerTable";
-            SqlDataAdapter adaptadorOwner = new SqlDataAdapter(consulta_owner, conexion);
-            DataTable dt = new DataTable();
-            adaptadorOwner.Fill(dt);
-            dataGridView1.DataSource = dt;
+            comboBox.Items.AddRange(new string[]
+            {
+                "GetOwnerTableData",
+                "GetLocationTableData",
+                "GetPharmacyTableData",
+                "GetMedicineTableData",
+                "GetInventoryTableData"
+            });
+            comboBox.Items.AddRange(new string[] { "ASC", "DESC" });
+            comboBox.SelectedIndex = 0;
+
         }
+
 
         private void cbx_tablas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void LoadData(string procedureName, string orderDirection)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conexion))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(procedureName, conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@OrderDirection", orderDirection);
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView1.DataSource = table;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -37,9 +37,11 @@
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.lbl_menu = new System.Windows.Forms.Label();
             this.btn_mostrar = new System.Windows.Forms.Button();
-            this.cbx_tablas = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_inicio
@@ -142,7 +144,7 @@
             this.lbl_menu.AutoSize = true;
             this.lbl_menu.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_menu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lbl_menu.Location = new System.Drawing.Point(668, 557);
+            this.lbl_menu.Location = new System.Drawing.Point(546, 538);
             this.lbl_menu.Name = "lbl_menu";
             this.lbl_menu.Size = new System.Drawing.Size(56, 18);
             this.lbl_menu.TabIndex = 41;
@@ -155,7 +157,7 @@
             this.btn_mostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_mostrar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_mostrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_mostrar.Location = new System.Drawing.Point(672, 610);
+            this.btn_mostrar.Location = new System.Drawing.Point(672, 542);
             this.btn_mostrar.Name = "btn_mostrar";
             this.btn_mostrar.Size = new System.Drawing.Size(100, 50);
             this.btn_mostrar.TabIndex = 42;
@@ -163,33 +165,37 @@
             this.btn_mostrar.UseVisualStyleBackColor = true;
             this.btn_mostrar.Click += new System.EventHandler(this.btn_mostrar_Click);
             // 
-            // cbx_tablas
+            // dataGridView1
             // 
-            this.cbx_tablas.BackColor = System.Drawing.Color.White;
-            this.cbx_tablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_tablas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_tablas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_tablas.FormattingEnabled = true;
-            this.cbx_tablas.Items.AddRange(new object[] {
-            "Propietarios",
-            "Farmacias",
-            "Medicamentos",
-            "Ciudades"});
-            this.cbx_tablas.Location = new System.Drawing.Point(622, 578);
-            this.cbx_tablas.Name = "cbx_tablas";
-            this.cbx_tablas.Size = new System.Drawing.Size(150, 26);
-            this.cbx_tablas.TabIndex = 40;
-            this.cbx_tablas.SelectedIndexChanged += new System.EventHandler(this.cbx_tablas_SelectedIndexChanged);
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkOrange;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(209, 277);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(550, 230);
+            this.dataGridView1.TabIndex = 43;
+            // 
+            // comboBox
+            // 
+            this.comboBox.AllowDrop = true;
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Location = new System.Drawing.Point(515, 559);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(123, 21);
+            this.comboBox.Sorted = true;
+            this.comboBox.TabIndex = 44;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // frm_consulta
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 761);
+            this.ClientSize = new System.Drawing.Size(805, 761);
+            this.Controls.Add(this.comboBox);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_mostrar);
             this.Controls.Add(this.lbl_menu);
-            this.Controls.Add(this.cbx_tablas);
             this.Controls.Add(this.dgv_tabla);
             this.Controls.Add(this.btn_inicio);
             this.Controls.Add(this.pbx_encavezado);
@@ -205,6 +211,7 @@
             this.Load += new System.EventHandler(this.frm_consulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +228,7 @@
         private System.Windows.Forms.DataGridView dgv_tabla;
         private System.Windows.Forms.Label lbl_menu;
         private System.Windows.Forms.Button btn_mostrar;
-        private System.Windows.Forms.ComboBox cbx_tablas;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.ComboBox comboBox;
     }
 }
