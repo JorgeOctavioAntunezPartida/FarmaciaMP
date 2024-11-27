@@ -160,10 +160,10 @@ namespace FarmaciaMP
         #region Funciones Adicionales
         public void ExecuteDelete()
         {
-            if (dgv_ownerTable.SelectedCells.Count > 0)
+            if (dgv_medicineTable.SelectedCells.Count > 0)
             {
                 // Obtener la celda seleccionada
-                DataGridViewCell selectedCell = dgv_ownerTable.SelectedCells[0];
+                DataGridViewCell selectedCell = dgv_medicineTable.SelectedCells[0];
 
                 // Obtener la fila correspondiente a la celda seleccionada
                 DataGridViewRow selectedRow = selectedCell.OwningRow;
@@ -194,10 +194,10 @@ namespace FarmaciaMP
 
         public void ExecuteUpdate()
         {
-            if (dgv_ownerTable.SelectedCells.Count > 0)
+            if (dgv_medicineTable.SelectedCells.Count > 0)
             {
                 // Obtener la celda seleccionada
-                DataGridViewCell selectedCell = dgv_ownerTable.SelectedCells[0];
+                DataGridViewCell selectedCell = dgv_medicineTable.SelectedCells[0];
 
                 // Obtener la fila correspondiente a la celda seleccionada
                 DataGridViewRow selectedRow = selectedCell.OwningRow;
@@ -264,12 +264,12 @@ namespace FarmaciaMP
                     dataAdapter.Fill(dataTable);
 
                     // Establecer el origen de datos del DataGridView a la tabla de datos
-                    dgv_ownerTable.DataSource = dataTable;
+                    dgv_medicineTable.DataSource = dataTable;
 
-                    dgv_ownerTable.Columns["ID"].Width = 50;
-                    dgv_ownerTable.Columns["Medicamento"].Width = 200;
-                    dgv_ownerTable.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 12);
-                    dgv_ownerTable.DefaultCellStyle.Font = new Font("Verdana", 12);
+                    dgv_medicineTable.Columns["ID"].Width = 50;
+                    dgv_medicineTable.Columns["Medicamento"].Width = 200;
+                    dgv_medicineTable.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 12);
+                    dgv_medicineTable.DefaultCellStyle.Font = new Font("Verdana", 12);
                 }
                 catch (Exception ex)
                 {

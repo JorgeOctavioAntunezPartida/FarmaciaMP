@@ -43,12 +43,12 @@
             this.pbx_icon = new System.Windows.Forms.PictureBox();
             this.gbx_table = new System.Windows.Forms.GroupBox();
             this.btn_deleteUpdate = new System.Windows.Forms.Button();
-            this.dgv_ownerTable = new System.Windows.Forms.DataGridView();
+            this.dgv_medicineTable = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.gbx_insert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_icon)).BeginInit();
             this.gbx_table.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ownerTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_medicineTable)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_inicio
@@ -224,7 +224,7 @@
             // gbx_table
             // 
             this.gbx_table.Controls.Add(this.btn_deleteUpdate);
-            this.gbx_table.Controls.Add(this.dgv_ownerTable);
+            this.gbx_table.Controls.Add(this.dgv_medicineTable);
             this.gbx_table.Location = new System.Drawing.Point(230, 264);
             this.gbx_table.Name = "gbx_table";
             this.gbx_table.Size = new System.Drawing.Size(320, 280);
@@ -247,17 +247,17 @@
             this.btn_deleteUpdate.UseVisualStyleBackColor = false;
             this.btn_deleteUpdate.Click += new System.EventHandler(this.btn_deleteUpdate_Click);
             // 
-            // dgv_ownerTable
+            // dgv_medicineTable
             // 
-            this.dgv_ownerTable.AllowUserToResizeColumns = false;
-            this.dgv_ownerTable.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_ownerTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_ownerTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ownerTable.Location = new System.Drawing.Point(6, 18);
-            this.dgv_ownerTable.Name = "dgv_ownerTable";
-            this.dgv_ownerTable.ReadOnly = true;
-            this.dgv_ownerTable.Size = new System.Drawing.Size(308, 198);
-            this.dgv_ownerTable.TabIndex = 0;
+            this.dgv_medicineTable.AllowUserToResizeColumns = false;
+            this.dgv_medicineTable.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_medicineTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_medicineTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_medicineTable.Location = new System.Drawing.Point(6, 18);
+            this.dgv_medicineTable.Name = "dgv_medicineTable";
+            this.dgv_medicineTable.ReadOnly = true;
+            this.dgv_medicineTable.Size = new System.Drawing.Size(308, 198);
+            this.dgv_medicineTable.TabIndex = 0;
             // 
             // frm_medicamento
             // 
@@ -288,7 +288,7 @@
             this.gbx_insert.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_icon)).EndInit();
             this.gbx_table.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ownerTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_medicineTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,6 +310,6 @@
         private System.Windows.Forms.PictureBox pbx_icon;
         private System.Windows.Forms.GroupBox gbx_table;
         private System.Windows.Forms.Button btn_deleteUpdate;
-        private System.Windows.Forms.DataGridView dgv_ownerTable;
+        private System.Windows.Forms.DataGridView dgv_medicineTable;
     }
 }
