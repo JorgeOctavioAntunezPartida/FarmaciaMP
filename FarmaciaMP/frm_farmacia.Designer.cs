@@ -42,10 +42,15 @@
             this.lbl_ownerId = new System.Windows.Forms.Label();
             this.lbl_pharmacyName = new System.Windows.Forms.Label();
             this.gbx_insert = new System.Windows.Forms.GroupBox();
-            this.cbx_ownerId = new System.Windows.Forms.ComboBox();
             this.cbx_locationId = new System.Windows.Forms.ComboBox();
+            this.cbx_ownerId = new System.Windows.Forms.ComboBox();
+            this.gbx_table = new System.Windows.Forms.GroupBox();
+            this.btn_deleteUpdate = new System.Windows.Forms.Button();
+            this.dgv_pharmacyTable = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.gbx_insert.SuspendLayout();
+            this.gbx_table.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pharmacyTable)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_inicio
@@ -232,6 +237,16 @@
             this.gbx_insert.TabIndex = 8;
             this.gbx_insert.TabStop = false;
             // 
+            // cbx_locationId
+            // 
+            this.cbx_locationId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_locationId.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_locationId.FormattingEnabled = true;
+            this.cbx_locationId.Location = new System.Drawing.Point(9, 139);
+            this.cbx_locationId.Name = "cbx_locationId";
+            this.cbx_locationId.Size = new System.Drawing.Size(300, 24);
+            this.cbx_locationId.TabIndex = 19;
+            // 
             // cbx_ownerId
             // 
             this.cbx_ownerId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -242,15 +257,43 @@
             this.cbx_ownerId.Size = new System.Drawing.Size(300, 26);
             this.cbx_ownerId.TabIndex = 18;
             // 
-            // cbx_locationId
+            // gbx_table
             // 
-            this.cbx_locationId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_locationId.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_locationId.FormattingEnabled = true;
-            this.cbx_locationId.Location = new System.Drawing.Point(9, 139);
-            this.cbx_locationId.Name = "cbx_locationId";
-            this.cbx_locationId.Size = new System.Drawing.Size(300, 26);
-            this.cbx_locationId.TabIndex = 19;
+            this.gbx_table.Controls.Add(this.btn_deleteUpdate);
+            this.gbx_table.Controls.Add(this.dgv_pharmacyTable);
+            this.gbx_table.Location = new System.Drawing.Point(126, 264);
+            this.gbx_table.Name = "gbx_table";
+            this.gbx_table.Size = new System.Drawing.Size(540, 280);
+            this.gbx_table.TabIndex = 20;
+            this.gbx_table.TabStop = false;
+            this.gbx_table.Visible = false;
+            // 
+            // btn_deleteUpdate
+            // 
+            this.btn_deleteUpdate.BackColor = System.Drawing.Color.Gray;
+            this.btn_deleteUpdate.FlatAppearance.BorderSize = 2;
+            this.btn_deleteUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deleteUpdate.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_deleteUpdate.ForeColor = System.Drawing.Color.White;
+            this.btn_deleteUpdate.Location = new System.Drawing.Point(6, 224);
+            this.btn_deleteUpdate.Name = "btn_deleteUpdate";
+            this.btn_deleteUpdate.Size = new System.Drawing.Size(100, 50);
+            this.btn_deleteUpdate.TabIndex = 20;
+            this.btn_deleteUpdate.Text = "...";
+            this.btn_deleteUpdate.UseVisualStyleBackColor = false;
+            this.btn_deleteUpdate.Click += new System.EventHandler(this.btn_deleteUpdate_Click);
+            // 
+            // dgv_pharmacyTable
+            // 
+            this.dgv_pharmacyTable.AllowUserToResizeColumns = false;
+            this.dgv_pharmacyTable.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_pharmacyTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_pharmacyTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_pharmacyTable.Location = new System.Drawing.Point(6, 18);
+            this.dgv_pharmacyTable.Name = "dgv_pharmacyTable";
+            this.dgv_pharmacyTable.ReadOnly = true;
+            this.dgv_pharmacyTable.Size = new System.Drawing.Size(528, 198);
+            this.dgv_pharmacyTable.TabIndex = 0;
             // 
             // frm_farmacia
             // 
@@ -260,6 +303,7 @@
             this.BackgroundImage = global::FarmaciaMP.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.gbx_table);
             this.Controls.Add(this.gbx_insert);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_eliminar);
@@ -278,6 +322,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).EndInit();
             this.gbx_insert.ResumeLayout(false);
             this.gbx_insert.PerformLayout();
+            this.gbx_table.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pharmacyTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,5 +346,8 @@
         private System.Windows.Forms.GroupBox gbx_insert;
         private System.Windows.Forms.ComboBox cbx_ownerId;
         private System.Windows.Forms.ComboBox cbx_locationId;
+        private System.Windows.Forms.GroupBox gbx_table;
+        private System.Windows.Forms.Button btn_deleteUpdate;
+        private System.Windows.Forms.DataGridView dgv_pharmacyTable;
     }
 }

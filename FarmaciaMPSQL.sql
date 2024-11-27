@@ -3,6 +3,8 @@ CREATE DATABASE FarmaciasMP
 
 USE FarmaciasMP
 GO
+
+--[TABLAS]====================================================================================
 --[Propietarios]
 CREATE TABLE ownerTable
 (
@@ -30,8 +32,8 @@ CREATE TABLE pharmacyTable
     pharmacyName NVARCHAR(50) NOT NULL,      -- Nombre de la farmacia
     ownerId INT NOT NULL,                     -- Relación con el propietario
     locationId INT NOT NULL,                  -- Relación con la ubicación
-    FOREIGN KEY (ownerId) REFERENCES ownerTable(ownerId),
-    FOREIGN KEY (locationId) REFERENCES locationTable(locationId)
+    FOREIGN KEY (ownerId) REFERENCES ownerTable(ownerId) ON DELETE CASCADE,
+    FOREIGN KEY (locationId) REFERENCES locationTable(locationId) ON DELETE CASCADE
 );
 
 --[Medicamento]
@@ -44,129 +46,96 @@ CREATE TABLE medicineTable
 --[Inventario]
 CREATE TABLE inventoryTable
 (
-    pharmacyId INT NOT NULL,                  -- Relación con la farmacia
-    medicineId INT NOT NULL,                  -- Relación con el medicamento
-    stock INT NOT NULL,                       -- Cantidad en inventario
-    FOREIGN KEY (pharmacyId) REFERENCES pharmacyTable(pharmacyId),
-    FOREIGN KEY (medicineId) REFERENCES medicineTable(medicineId),
-    PRIMARY KEY (pharmacyId, medicineId)      -- Llave primaria compuesta
+    inventoryId INT PRIMARY KEY IDENTITY(1,1), -- Nueva columna como clave primaria
+    pharmacyId INT NOT NULL,                   -- Relación con la farmacia
+    medicineId INT NULL,                       -- Relación con el medicamento, permite NULL
+    stock INT NOT NULL,                        -- Cantidad en inventario
+    FOREIGN KEY (pharmacyId) REFERENCES pharmacyTable(pharmacyId) ON DELETE CASCADE,
+    FOREIGN KEY (medicineId) REFERENCES medicineTable(medicineId) ON DELETE SET NULL,
+    UNIQUE (pharmacyId, medicineId)            -- Restricción de unicidad
 );
 
+--[TEST REGISTROS]==========================================================================
 SELECT * FROM ownerTable
 SELECT * FROM pharmacyTable
 SELECT * FROM locationTable
 SELECT * FROM medicineTable
 SELECT * FROM inventoryTable
 
-DELETE FROM 
+DELETE FROM inventoryTable
+
 DBCC CHECKIDENT ('ownerTable', RESEED, 0);
+DBCC CHECKIDENT ('locationTable', RESEED, 0);
+DBCC CHECKIDENT ('pharmacyTable', RESEED, 0);
+DBCC CHECKIDENT ('medicineTable', RESEED, 0);
 
--- [Propietarios]
-INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)
-VALUES
-('Carlos', 'Gómez', 'M', '1234567890', 'carlos.gomez@gmail.com'),
-('Ana', 'Martínez', 'F', '1234567891', 'ana.martinez@gmail.com'),
-('Luis', 'Fernández', 'M', '1234567892', 'luis.fernandez@gmail.com'),
-('María', 'López', 'F', '1234567893', 'maria.lopez@gmail.com'),
-('José', 'Pérez', 'M', '1234567894', 'jose.perez@gmail.com'),
-('Laura', 'Ramírez', 'F', '1234567895', 'laura.ramirez@gmail.com'),
-('Javier', 'Torres', 'M', '1234567896', 'javier.torres@gmail.com'),
-('Marta', 'Sánchez', 'F', '1234567897', 'marta.sanchez@gmail.com'),
-('Andrés', 'Castro', 'M', '1234567898', 'andres.castro@gmail.com'),
-('Lucía', 'Vega', 'F', '1234567899', 'lucia.vega@gmail.com'),
-('Miguel', 'Ortega', 'M', '1234567800', 'miguel.ortega@gmail.com'),
-('Sofía', 'Morales', 'F', '1234567801', 'sofia.morales@gmail.com'),
-('Juan', 'Núñez', 'M', '1234567802', 'juan.nunez@gmail.com'),
-('Isabel', 'Herrera', 'F', '1234567803', 'isabel.herrera@gmail.com'),
-('Pedro', 'Flores', 'M', '1234567804', 'pedro.flores@gmail.com'),
-('Elena', 'Rivas', 'F', '1234567805', 'elena.rivas@gmail.com'),
-('Héctor', 'Ruiz', 'M', '1234567806', 'hector.ruiz@gmail.com'),
-('Clara', 'Cruz', 'F', '1234567807', 'clara.cruz@gmail.com'),
-('Roberto', 'Navarro', 'M', '1234567808', 'roberto.navarro@gmail.com'),
-('Gabriela', 'Castillo', 'F', '1234567809', 'gabriela.castillo@gmail.com');
+UPDATE pharmacyTable SET pharmacyName = 'FarmaciaNew2' WHERE ownerId = 1 AND locationId = 1
+--[REGISTROS]=================================================================================
+INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail) 
+VALUES 
+('Carlos', 'Pérez', 'M', '1234567890', 'carlos.perez@example.com'),
+('María', 'López', 'F', '0987654321', 'maria.lopez@example.com'),
+('Juan', 'Martínez', 'M', '1122334455', 'juan.martinez@example.com'),
+('Ana', 'García', 'F', '2233445566', 'ana.garcia@example.com'),
+('Luis', 'Hernández', 'M', '3344556677', 'luis.hernandez@example.com'),
+('Sofía', 'Ramírez', 'F', '4455667788', 'sofia.ramirez@example.com'),
+('Miguel', 'Torres', 'M', '5566778899', 'miguel.torres@example.com'),
+('Laura', 'Gómez', 'F', '6677889900', 'laura.gomez@example.com'),
+('Diego', 'Vargas', 'M', '7788990011', 'diego.vargas@example.com'),
+('Elena', 'Morales', 'F', '8899001122', 'elena.morales@example.com');
 
--- [Ubicaciones]
-INSERT INTO locationTable (locationAddress, locationCity, locationState)
-VALUES
-('Av. Reforma 123', 'Ciudad de México', 'CDMX'),
-('Calle 10 #45', 'Guadalajara', 'Jalisco'),
-('Col. Centro #567', 'Monterrey', 'Nuevo León'),
-('Paseo de las Flores 21', 'Puebla', 'Puebla'),
-('Av. Sol 90', 'Cancún', 'Quintana Roo'),
-('Av. Insurgentes 450', 'Querétaro', 'Querétaro'),
-('Calle Luna #11', 'Tijuana', 'Baja California'),
-('Plaza Mayor #32', 'León', 'Guanajuato'),
-('Zona Río #88', 'Mexicali', 'Baja California'),
-('Calle Oro 15', 'Culiacán', 'Sinaloa'),
-('Paseo del Valle 98', 'Mérida', 'Yucatán'),
-('Col. Roma Norte #45', 'Ciudad de México', 'CDMX'),
-('Calle Sur 13', 'Toluca', 'Estado de México'),
-('Av. Hidalgo 32', 'Tepic', 'Nayarit'),
-('Boulevard San Ángel 200', 'Chihuahua', 'Chihuahua'),
-('Col. San Pedro #89', 'Saltillo', 'Coahuila'),
-('Calle Norte 44', 'Villahermosa', 'Tabasco'),
-('Paseo del Norte #77', 'Zacatecas', 'Zacatecas'),
-('Calle Diamante 12', 'Morelia', 'Michoacán'),
-('Av. Principal 101', 'Oaxaca', 'Oaxaca');
+INSERT INTO locationTable (locationAddress, locationCity, locationState) 
+VALUES 
+('Avenida Constitución 1000', 'Aguascalientes', 'Aguascalientes'),
+('Calle Paseo del Río 200', 'Tijuana', 'Baja California'),
+('Avenida del Mar 150', 'La Paz', 'Baja California Sur'),
+('Calle Central 123', 'Tuxtla Gutiérrez', 'Chiapas'),
+('Avenida Pacheco 700', 'Chihuahua', 'Chihuahua'),
+('Calle Reforma 1234', 'Ciudad de México', 'Ciudad de México'),
+('Avenida Juárez 555', 'Saltillo', 'Coahuila'),
+('Calle Colima 1020', 'Colima', 'Colima'),
+('Avenida Guanajuato 700', 'León', 'Guanajuato'),
+('Calle Guerrero 456', 'Acapulco', 'Guerrero');
 
--- [Medicamentos]
-INSERT INTO medicineTable (medicineName)
-VALUES
+INSERT INTO pharmacyTable (pharmacyName, ownerId, locationId) 
+VALUES 
+('Farmacia 1', 1, 1),
+('Farmacia 2', 2, 2),
+('Farmacia 3', 3, 3),
+('Farmacia 4', 4, 4),
+('Farmacia 5', 5, 5),
+('Farmacia 6', 6, 6),
+('Farmacia 7', 7, 7),
+('Farmacia 8', 8, 8),
+('Farmacia 9', 9, 9),
+('Farmacia 10', 10, 10);
+
+INSERT INTO medicineTable (medicineName) 
+VALUES 
 ('Paracetamol'),
 ('Ibuprofeno'),
 ('Amoxicilina'),
-('Loratadina'),
-('Omeprazol'),
-('Metformina'),
-('Atorvastatina'),
-('Losartán'),
-('Salbutamol'),
-('Aspirina'),
-('Ranitidina'),
-('Cefalexina'),
-('Clonazepam'),
-('Azitromicina'),
 ('Diclofenaco'),
-('Enalapril'),
-('Furosemida'),
-('Ketorolaco'),
-('Metronidazol'),
-('Prednisona'),
-('Ciprofloxacino'),
-('Simvastatina'),
-('Dexametasona'),
-('Fluconazol'),
-('Propranolol'),
-('Acetaminofén'),
-('Naproxeno'),
-('Tramadol'),
-('Cetirizina'),
-('Claritromicina'),
-('Hidroxicloroquina'),
-('Valproato'),
-('Glimepirida'),
-('Levotiroxina'),
-('Sertralina'),
-('Lorazepam'),
-('Tamsulosina'),
-('Amlodipino'),
-('Esomeprazol'),
-('Montelukast'),
-('Doxiciclina'),
-('Gabapentina'),
-('Alprazolam'),
-('Rosuvastatina'),
-('Venlafaxina'),
-('Pregabalina'),
-('Lamotrigina'),
-('Sitagliptina'),
-('Zolpidem'),
-('Carbamazepina');
+('Loratadina'),
+('Ranitidina'),
+('Metformina'),
+('Clonazepam'),
+('Omeprazol'),
+('Azitromicina');
 
-SELECT * FROM ownerTable
-SELECT * FROM locationTable
-SELECT * FROM medicineTable
-
+INSERT INTO inventoryTable (pharmacyId, medicineId, stock) 
+VALUES 
+(1, 1, 50),
+(1, 2, 30),
+(2, 3, 20),
+(2, 4, 40),
+(3, 5, 15),
+(3, 6, 25),
+(8, 7, 60),
+(8, 8, 10),
+(5, 9, 35),
+(5, 10, 45);
+--[VISTAS]====================================================================================
 -- CREAR VISTA DESDE LA TABLA PROPIETARIOS
 CREATE VIEW Detalles_Propietarios AS
 SELECT 
@@ -190,13 +159,14 @@ FROM locationTable;
 
 SELECT * FROM LocalizacionFarmacias;
 
+--DROP VIEW propietarios_direcciones (Vista Actualizada)
 --VISTA EN LA QUE SE PUEDE VER LA DIRECCION DE LOS PROPIETARIOS
 CREATE VIEW propietarios_direcciones AS
 SELECT 
-    p.pharmacyId AS PharmacyID,
-    p.pharmacyName AS PharmacyName,
-    CONCAT(o.ownerName, ' ', o.ownerLastName) AS OwnerName,
-    CONCAT(l.locationAddress, ', ', l.locationCity, ', ', l.locationState) AS Location
+    p.pharmacyId AS ID,
+    p.pharmacyName AS Farmacia,
+    CONCAT(o.ownerName, ' ', o.ownerLastName) AS Propietario,
+    CONCAT(l.locationCity, '-', l.locationAddress) AS Ubicación
 FROM pharmacyTable p
 INNER JOIN ownerTable o ON p.ownerId = o.ownerId
 INNER JOIN locationTable l ON p.locationId = l.locationId;
@@ -232,6 +202,7 @@ INNER JOIN medicineTable m ON i.medicineId = m.medicineId;
 
 SELECT * FROM Pharmacy_infoData;
 
+--[PROCEDURES]====================================================================================
 -- Método para consultar ownerTable en orden ascendente y descendente
 CREATE PROCEDURE Propietarios_Tabla(@orderDirection NVARCHAR(4))
 AS
