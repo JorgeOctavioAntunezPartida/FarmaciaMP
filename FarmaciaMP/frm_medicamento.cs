@@ -36,23 +36,17 @@ namespace FarmaciaMP
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            Conex.Open();
-
-            string bajaMedi = "DELETE FROM regMedicamento WHERE idMedi = " + txt_medicineName.Text;
-
-            SqlCommand cmdBorrar = new SqlCommand(bajaMedi, Conex);
-            cmdBorrar.ExecuteNonQuery();
-
-            txt_medicineName.Clear();
-
-            Conex.Close();
-            MessageBox.Show("Medicamento Eliminado");
+            
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             
         }
+
+        #region Funciones Adicionales
+
+        #endregion
 
         #region Validación
         public bool isValidRegister()

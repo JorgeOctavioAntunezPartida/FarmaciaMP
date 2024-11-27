@@ -327,12 +327,12 @@ namespace FarmaciaMP
             // Verificar cada campo y agregar los mensajes de error si es necesario
             if (EsTextBoxVacia(txt_locationAddress))
             {
-                errorMessages.AppendLine("La dirección no estar vacía.");
+                errorMessages.AppendLine("La dirección no debe de estar vacía.");
             }
 
             if (EsTextBoxVacia(txt_locationCity))
             {
-                errorMessages.AppendLine("La ciudad no estar vacía.");
+                errorMessages.AppendLine("La ciudad no debe de estar vacía.");
             }
 
             if (!IsSelectState())
