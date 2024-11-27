@@ -245,6 +245,7 @@
             this.btn_deleteUpdate.TabIndex = 20;
             this.btn_deleteUpdate.Text = "...";
             this.btn_deleteUpdate.UseVisualStyleBackColor = false;
+            this.btn_deleteUpdate.Click += new System.EventHandler(this.btn_deleteUpdate_Click);
             // 
             // dgv_ownerTable
             // 
