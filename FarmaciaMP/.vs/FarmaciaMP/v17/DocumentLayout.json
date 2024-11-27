@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\admin\\desktop\\repositorios git hub\\farmaciamp\\farmaciamp\\frm_consulta.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_consulta.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_consulta.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -61,7 +61,7 @@
               "RelativeDocumentMoniker": "frm_consulta.cs",
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_consulta.cs",
               "RelativeToolTip": "frm_consulta.cs",
-              "ViewState": "AQIAADgAAACAmZmZmZkvwEMAAABCAAAA",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAwwH4AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T06:25:15.724Z",
               "EditorCaption": ""
@@ -86,9 +86,8 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T06:24:19.626Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-11-25T06:24:19.626Z"
             },
             {
               "$type": "Document",
@@ -99,9 +98,8 @@
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_propietario.cs",
               "RelativeToolTip": "frm_propietario.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAgwBkAAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T08:36:01.504Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-11-23T08:36:01.504Z"
             },
             {
               "$type": "Document",
@@ -111,14 +109,9 @@
               "RelativeDocumentMoniker": "frm_ciudad.cs",
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs",
               "RelativeToolTip": "frm_ciudad.cs",
-<<<<<<< Updated upstream
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAEgAAAAuAAAA",
-=======
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALUAAAABAAAAAAAAAA==",
->>>>>>> Stashed changes
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T06:55:56.345Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-11-23T06:55:56.345Z"
             },
             {
               "$type": "Document",
@@ -128,9 +121,8 @@
               "RelativeDocumentMoniker": "frm_ciudad.cs",
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs [Dise\u00F1o]",
               "RelativeToolTip": "frm_ciudad.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T06:55:52.073Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-11-23T06:55:52.073Z"
             }
           ]
         }

@@ -39,6 +39,7 @@
             this.btn_mostrar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBox = new System.Windows.Forms.ComboBox();
+            this.cbxOrdenamiento = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -185,6 +186,19 @@
             this.comboBox.TabIndex = 44;
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
+            // cbxOrdenamiento
+            // 
+            this.cbxOrdenamiento.AllowDrop = true;
+            this.cbxOrdenamiento.FormattingEnabled = true;
+            this.cbxOrdenamiento.Items.AddRange(new object[] {
+            "Ascendente",
+            "Descendete"});
+            this.cbxOrdenamiento.Location = new System.Drawing.Point(515, 586);
+            this.cbxOrdenamiento.Name = "cbxOrdenamiento";
+            this.cbxOrdenamiento.Size = new System.Drawing.Size(123, 21);
+            this.cbxOrdenamiento.Sorted = true;
+            this.cbxOrdenamiento.TabIndex = 45;
+            // 
             // frm_consulta
             // 
             this.AllowDrop = true;
@@ -192,6 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(805, 761);
+            this.Controls.Add(this.cbxOrdenamiento);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_mostrar);
@@ -230,5 +245,6 @@
         private System.Windows.Forms.Button btn_mostrar;
         private System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.ComboBox comboBox;
+        public System.Windows.Forms.ComboBox cbxOrdenamiento;
     }
 }

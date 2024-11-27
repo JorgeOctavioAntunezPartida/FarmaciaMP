@@ -2,7 +2,7 @@
 CREATE DATABASE FarmaciasMP
 
 USE FarmaciasMP
-
+GO
 --[Propietarios]
 CREATE TABLE ownerTable
 (
@@ -101,7 +101,7 @@ VALUES
 
 
 -- CREAR VISTA DESDE LA TABLA PROPIETARIOS
-CREATE VIEW vw_ownerDetails AS
+CREATE VIEW Detalles_Propietarios AS
 SELECT 
     ownerId AS ID,
     CONCAT(ownerName, ' ', ownerLastName) AS FullName,
@@ -110,18 +110,18 @@ SELECT
     ownerGmail AS Email
 FROM ownerTable;
 
-SELECT * FROM vw_ownerDetails;
+SELECT * FROM Detalles_Propietarios;
 
 
 --CREAR VISTA DESDE LA TABLA PARA VER LA UBICACIONES DE LAS FARMACIAS
-CREATE VIEW vw_localizacionFarmacias AS
+CREATE VIEW Local_Farmacias AS
 SELECT 
     locationId AS ID,
     CONCAT(locationAddress, ', ', locationCity, ', ', locationState) AS FullAddress
 FROM locationTable;
 
 
-SELECT * FROM vw_localizacionFarmacias;
+SELECT * FROM LocalizacionFarmacias;
 
 --VISTA EN LA QUE SE PUEDE VER LA DIRECCION DE LOS PROPIETARIOS
 CREATE VIEW propietarios_direcciones AS
@@ -166,7 +166,7 @@ INNER JOIN medicineTable m ON i.medicineId = m.medicineId;
 SELECT * FROM Pharmacy_infoData;
 
 -- Método para consultar ownerTable en orden ascendente y descendente
-CREATE PROCEDURE GetOwnerTableData(@orderDirection NVARCHAR(4))
+CREATE PROCEDURE Propietarios_Tabla(@orderDirection NVARCHAR(4))
 AS
 BEGIN
     IF @orderDirection = 'ASC'
@@ -178,7 +178,7 @@ BEGIN
 END;
 
 -- Método para consultar locationTable en orden ascendente y descendente
-CREATE PROCEDURE GetLocationTableData(@orderDirection NVARCHAR(4))
+CREATE PROCEDURE Localizacion_Farmacias(@orderDirection NVARCHAR(4))
 AS
 BEGIN
     IF @orderDirection = 'ASC'
@@ -190,7 +190,7 @@ BEGIN
 END;
 
 -- Método para consultar pharmacyTable en orden ascendente y descendente
-CREATE PROCEDURE GetPharmacyTableData(@orderDirection NVARCHAR(4))
+CREATE PROCEDURE Farmacias(@orderDirection NVARCHAR(4))
 AS
 BEGIN
     IF @orderDirection = 'ASC'
@@ -202,7 +202,7 @@ BEGIN
 END;
 
 -- Método para consultar medicineTable en orden ascendente y descendente
-CREATE PROCEDURE GetMedicineTableData(@orderDirection NVARCHAR(4))
+CREATE PROCEDURE Medicamentos(@orderDirection NVARCHAR(4))
 AS
 BEGIN
     IF @orderDirection = 'ASC'
@@ -214,7 +214,7 @@ BEGIN
 END;
 
 -- Método para consultar inventoryTable en orden ascendente y descendente
-CREATE PROCEDURE GetInventoryTableData(@orderDirection NVARCHAR(4))
+CREATE PROCEDURE Inventario(@orderDirection NVARCHAR(4))
 AS
 BEGIN
     IF @orderDirection = 'ASC'
@@ -226,31 +226,31 @@ BEGIN
 END;
 
 -- Consultar ownerTable en orden ascendente
-EXEC GetOwnerTableData 'ASC';
+EXEC Propietarios_Tabla 'ASC';
 
 -- Consultar ownerTable en orden descendente
-EXEC GetOwnerTableData 'DESC';
+EXEC Propietarios_Tabla'DESC';
 
 -- Consultar locationTable en orden ascendente
-EXEC GetLocationTableData 'ASC';
+EXEC Localizacion_Farmacias'ASC';
 
 -- Consultar locationTable en orden descendente
-EXEC GetLocationTableData 'DESC';
+EXEC Localizacion_Farmacias'DESC';
 
 -- Consultar pharmacyTable en orden ascendente
-EXEC GetPharmacyTableData 'ASC';
+EXEC Farmacias 'ASC';
 
 -- Consultar pharmacyTable en orden descendente
-EXEC GetPharmacyTableData 'DESC';
+EXEC Farmacias 'DESC';
 
 -- Consultar medicineTable en orden ascendente
-EXEC GetMedicineTableData 'ASC';
+EXEC Medicamentos 'ASC';
 
 -- Consultar medicineTable en orden descendente
-EXEC GetMedicineTableData 'DESC';
+EXEC Medicamentos 'DESC';
 
 -- Consultar inventoryTable en orden ascendente
-EXEC GetInventoryTableData 'ASC';
+EXEC Inventario 'ASC';
 
 -- Consultar inventoryTable en orden descendente
-EXEC GetInventoryTableData 'DESC';
+EXEC Inventario'DESC';

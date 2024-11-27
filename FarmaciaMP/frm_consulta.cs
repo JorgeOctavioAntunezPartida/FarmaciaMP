@@ -24,9 +24,11 @@ namespace FarmaciaMP
         public frm_consulta()
         {
             InitializeComponent();
+
+            
         }
         //LLADAMA AL METODO LOAD DATA PARA CARGAR EL PROCEDIMIENTO ALMACENADO
-        private void loadDAta(string procedData, string orderDirection)
+        private void loadData(string procedData, string orderDirection)
         {
             try
             {
@@ -49,6 +51,7 @@ namespace FarmaciaMP
                         adapter.Fill(table);
 
                         dataGridView1.DataSource = table;
+                        dataGridView1.AutoResizeColumns();
                     }
                 }
             }
@@ -67,8 +70,23 @@ namespace FarmaciaMP
 
         private void btn_mostrar_Click(object sender, EventArgs e)
         {
+            if (comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a procedure.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbxOrdenamiento.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an order direction.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get selected procedure and order direction
             string procedureName = comboBox.SelectedItem.ToString();
-            string orderDirection = comboBox.SelectedItem.ToString();
+            string orderDirection = cbxOrdenamiento.SelectedItem.ToString();
+
+            // Load data
             LoadData(procedureName, orderDirection);
         }
 
@@ -102,17 +120,35 @@ namespace FarmaciaMP
         //vistas
         private void frm_consulta_Load(object sender, EventArgs e)
         {
+            comboBox.Items.Clear(); // Clear any existing items
             comboBox.Items.AddRange(new string[]
             {
-                "GetOwnerTableData",
-                "GetLocationTableData",
-                "GetPharmacyTableData",
-                "GetMedicineTableData",
-                "GetInventoryTableData"
-            });
-            comboBox.Items.AddRange(new string[] { "ASC", "DESC" });
-            comboBox.SelectedIndex = 0;
+            //PROCEDIMIENTOS ALMACENADOS QUE SE PUEDEN OBSERVAR CON AYUDA DE LOS COMBOBOX
+                
+                "Farmacias",
+                "Medicamentos",
+                "Inventario",
 
+            //VISTAS ALMACENADAS QUE CONTIENEN INNER JOIN PARA PODER CARGAR DOS TABLAS LA MISMA CONSULTA
+            // Vistas
+                "Detalles_Propietarios",
+                "Local_Farmacias",
+                "propietarios_direcciones",
+                "inventario_farmacias",
+                "Pharmacy_infoData"
+
+            });
+
+            // Order Direction ComboBox
+            cbxOrdenamiento.Items.Clear(); // Clear any existing items
+            cbxOrdenamiento.Items.AddRange(new string[] { "ASC", "DESC" });
+
+            // Set default selections
+            if (comboBox.Items.Count > 0)
+                comboBox.SelectedIndex = 0;
+
+            if (cbxOrdenamiento.Items.Count > 0)
+                cbxOrdenamiento.SelectedIndex = 0;
         }
 
 
@@ -127,16 +163,38 @@ namespace FarmaciaMP
                 using (SqlConnection conn = new SqlConnection(conexion))
                 {
                     conn.Open();
+                    // Determinar si es un procedimiento almacenado o una vista
+                    string query = procedureName.Contains("_") || procedureName.Contains(" ")
+                        ? $"SELECT * FROM {procedureName}"
+                        : procedureName;
+
+                    //PROCEDIMIENTO ALMACENADO
                     using (SqlCommand cmd = new SqlCommand(procedureName, conn))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@OrderDirection", orderDirection);
-
+                        if (!query.StartsWith("SELECT"))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@OrderDirection", orderDirection);
+                        }
+                        else
+                        {
+                            // Para vistas, agregar ORDER BY si es necesario
+                            if (orderDirection == "Descendente")
+                            {
+                                query += " ORDER BY 1 DESC";
+                            }
+                            else
+                            {
+                                query += " ORDER BY 1 ASC";
+                            }
+                            cmd.CommandText = query;
+                        }
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         DataTable table = new DataTable();
                         adapter.Fill(table);
 
                         dataGridView1.DataSource = table;
+                        dataGridView1.AutoResizeColumns();
                     }
                 }
             }
