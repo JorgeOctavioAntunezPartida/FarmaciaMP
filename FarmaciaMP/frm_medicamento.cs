@@ -14,6 +14,7 @@ namespace FarmaciaMP
 {
     public partial class frm_medicamento : Form
     {
+        private string conexionSql = "server=DESKTOP-D739HSR\\WINNEMAN; database=FarmaciasMP; integrated security=true";
         public frm_medicamento()
         {
             InitializeComponent();
@@ -126,6 +127,13 @@ namespace FarmaciaMP
             Form consulta = new frm_consulta();
             consulta.Show();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form registro = new Registro();
+            registro.Show();
+            this.Hide();
         }
     }
 }

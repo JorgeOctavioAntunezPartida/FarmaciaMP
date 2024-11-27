@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_consulta));
             this.btn_inicio = new System.Windows.Forms.Button();
             this.pbx_encavezado = new System.Windows.Forms.PictureBox();
             this.btn_ciudad = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.cbxOrdenamiento = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,7 +80,7 @@
             this.btn_ciudad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_ciudad.FlatAppearance.BorderSize = 2;
             this.btn_ciudad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ciudad.Location = new System.Drawing.Point(60, 462);
+            this.btn_ciudad.Location = new System.Drawing.Point(60, 430);
             this.btn_ciudad.Name = "btn_ciudad";
             this.btn_ciudad.Size = new System.Drawing.Size(60, 60);
             this.btn_ciudad.TabIndex = 35;
@@ -93,7 +95,7 @@
             this.btn_medicamento.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_medicamento.FlatAppearance.BorderSize = 2;
             this.btn_medicamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_medicamento.Location = new System.Drawing.Point(60, 396);
+            this.btn_medicamento.Location = new System.Drawing.Point(60, 364);
             this.btn_medicamento.Name = "btn_medicamento";
             this.btn_medicamento.Size = new System.Drawing.Size(60, 60);
             this.btn_medicamento.TabIndex = 34;
@@ -108,7 +110,7 @@
             this.btn_farmacia.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_farmacia.FlatAppearance.BorderSize = 2;
             this.btn_farmacia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_farmacia.Location = new System.Drawing.Point(60, 330);
+            this.btn_farmacia.Location = new System.Drawing.Point(60, 298);
             this.btn_farmacia.Name = "btn_farmacia";
             this.btn_farmacia.Size = new System.Drawing.Size(60, 60);
             this.btn_farmacia.TabIndex = 33;
@@ -123,7 +125,7 @@
             this.btn_propietario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_propietario.FlatAppearance.BorderSize = 2;
             this.btn_propietario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_propietario.Location = new System.Drawing.Point(60, 264);
+            this.btn_propietario.Location = new System.Drawing.Point(60, 232);
             this.btn_propietario.Name = "btn_propietario";
             this.btn_propietario.Size = new System.Drawing.Size(60, 60);
             this.btn_propietario.TabIndex = 32;
@@ -199,6 +201,22 @@
             this.cbxOrdenamiento.Sorted = true;
             this.cbxOrdenamiento.TabIndex = 45;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(60, 496);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(60, 60);
+            this.button1.TabIndex = 46;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frm_consulta
             // 
             this.AllowDrop = true;
@@ -206,6 +224,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(805, 761);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbxOrdenamiento);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.dataGridView1);
@@ -220,7 +239,6 @@
             this.Controls.Add(this.btn_propietario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frm_consulta";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultas";
             this.Load += new System.EventHandler(this.frm_consulta_Load);
@@ -246,5 +264,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.ComboBox comboBox;
         public System.Windows.Forms.ComboBox cbxOrdenamiento;
+        private System.Windows.Forms.Button button1;
     }
 }

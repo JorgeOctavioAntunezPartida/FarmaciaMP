@@ -419,5 +419,12 @@ namespace FarmaciaMP
             this.Close();
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form registro = new Registro();
+            registro.Show();
+            this.Hide();
+        }
     }
 }

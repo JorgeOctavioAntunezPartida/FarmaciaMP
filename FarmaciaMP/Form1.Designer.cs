@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pantalla_inicio));
             this.btn_propietario = new System.Windows.Forms.Button();
             this.btn_farmacia = new System.Windows.Forms.Button();
             this.btn_medicamento = new System.Windows.Forms.Button();
             this.btn_ciudad = new System.Windows.Forms.Button();
             this.btn_consulta = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_propietario
@@ -98,7 +100,7 @@
             // btn_consulta
             // 
             this.btn_consulta.BackColor = System.Drawing.Color.White;
-            this.btn_consulta.BackgroundImage = global::FarmaciaMP.Properties.Resources.icon_registro;
+            this.btn_consulta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_consulta.BackgroundImage")));
             this.btn_consulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_consulta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_consulta.FlatAppearance.BorderSize = 2;
@@ -110,24 +112,42 @@
             this.btn_consulta.UseVisualStyleBackColor = false;
             this.btn_consulta.Click += new System.EventHandler(this.btn_consulta_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(568, 500);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(60, 60);
+            this.button1.TabIndex = 5;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // pantalla_inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::FarmaciaMP.Properties.Resources.titulo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(784, 761);
+            this.ClientSize = new System.Drawing.Size(864, 601);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_consulta);
             this.Controls.Add(this.btn_ciudad);
             this.Controls.Add(this.btn_medicamento);
             this.Controls.Add(this.btn_farmacia);
             this.Controls.Add(this.btn_propietario);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Name = "pantalla_inicio";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pantalla de Inicio";
             this.ResumeLayout(false);
 
         }
@@ -139,6 +159,7 @@
         private System.Windows.Forms.Button btn_medicamento;
         private System.Windows.Forms.Button btn_ciudad;
         private System.Windows.Forms.Button btn_consulta;
+        private System.Windows.Forms.Button button1;
     }
 }
 

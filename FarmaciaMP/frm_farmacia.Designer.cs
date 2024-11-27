@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_farmacia));
             this.btn_inicio = new System.Windows.Forms.Button();
             this.pbx_encavezado = new System.Windows.Forms.PictureBox();
             this.btn_consulta = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.lbl_idFarmacia = new System.Windows.Forms.Label();
             this.superFarmacia = new System.Windows.Forms.TextBox();
             this.lbl_superFarmacia = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,12 +84,12 @@
             // btn_consulta
             // 
             this.btn_consulta.BackColor = System.Drawing.Color.White;
-            this.btn_consulta.BackgroundImage = global::FarmaciaMP.Properties.Resources.icon_registro;
+            this.btn_consulta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_consulta.BackgroundImage")));
             this.btn_consulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_consulta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_consulta.FlatAppearance.BorderSize = 2;
             this.btn_consulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_consulta.Location = new System.Drawing.Point(60, 462);
+            this.btn_consulta.Location = new System.Drawing.Point(60, 426);
             this.btn_consulta.Name = "btn_consulta";
             this.btn_consulta.Size = new System.Drawing.Size(60, 60);
             this.btn_consulta.TabIndex = 15;
@@ -102,7 +104,7 @@
             this.btn_ciudad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_ciudad.FlatAppearance.BorderSize = 2;
             this.btn_ciudad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ciudad.Location = new System.Drawing.Point(60, 396);
+            this.btn_ciudad.Location = new System.Drawing.Point(60, 360);
             this.btn_ciudad.Name = "btn_ciudad";
             this.btn_ciudad.Size = new System.Drawing.Size(60, 60);
             this.btn_ciudad.TabIndex = 14;
@@ -117,7 +119,7 @@
             this.btn_medicamento.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_medicamento.FlatAppearance.BorderSize = 2;
             this.btn_medicamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_medicamento.Location = new System.Drawing.Point(60, 330);
+            this.btn_medicamento.Location = new System.Drawing.Point(60, 294);
             this.btn_medicamento.Name = "btn_medicamento";
             this.btn_medicamento.Size = new System.Drawing.Size(60, 60);
             this.btn_medicamento.TabIndex = 13;
@@ -132,7 +134,7 @@
             this.btn_propietario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_propietario.FlatAppearance.BorderSize = 2;
             this.btn_propietario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_propietario.Location = new System.Drawing.Point(60, 264);
+            this.btn_propietario.Location = new System.Drawing.Point(60, 228);
             this.btn_propietario.Name = "btn_propietario";
             this.btn_propietario.Size = new System.Drawing.Size(60, 60);
             this.btn_propietario.TabIndex = 11;
@@ -310,6 +312,22 @@
             this.lbl_superFarmacia.TabIndex = 41;
             this.lbl_superFarmacia.Text = "Superficie";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(60, 492);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(60, 60);
+            this.button1.TabIndex = 42;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frm_farmacia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +336,7 @@
             this.BackgroundImage = global::FarmaciaMP.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.superFarmacia);
             this.Controls.Add(this.lbl_superFarmacia);
             this.Controls.Add(this.btn_modificar);
@@ -377,5 +396,6 @@
         private System.Windows.Forms.Label lbl_idFarmacia;
         private System.Windows.Forms.TextBox superFarmacia;
         private System.Windows.Forms.Label lbl_superFarmacia;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -43,3 +43,4 @@ C:\Users\admin\Desktop\REPOSITORIOS GIT HUB\FarmaciaMP\FarmaciaMP\obj\Debug\Farm
 C:\Users\admin\Desktop\REPOSITORIOS GIT HUB\FarmaciaMP\FarmaciaMP\obj\Debug\FarmaciaMP.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\REPOSITORIOS GIT HUB\FarmaciaMP\FarmaciaMP\obj\Debug\FarmaciaMP.exe
 C:\Users\admin\Desktop\REPOSITORIOS GIT HUB\FarmaciaMP\FarmaciaMP\obj\Debug\FarmaciaMP.pdb
+C:\Users\admin\Desktop\REPOSITORIOS GIT HUB\FarmaciaMP\FarmaciaMP\obj\Debug\FarmaciaMP.Registro.resources

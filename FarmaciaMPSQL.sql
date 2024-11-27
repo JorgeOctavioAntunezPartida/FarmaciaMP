@@ -254,3 +254,177 @@ EXEC Inventario 'ASC';
 
 -- Consultar inventoryTable en orden descendente
 EXEC Inventario'DESC';
+
+
+--PROCEDIMIENTOS  CON TRANSACTIONS COMMIT Y ROLLBACK
+--PRIMER PROCEDIMIENTO
+CREATE PROCEDURE AgregarPropietario
+(
+    @ownerName NVARCHAR(50),
+    @ownerLastName NVARCHAR(50),
+    @ownerGender CHAR(1),
+    @ownerPhoneNumber NVARCHAR(20),
+    @ownerGmail NVARCHAR(128)
+)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Validar datos de entrada
+        IF @ownerName IS NULL OR @ownerLastName IS NULL OR @ownerGender IS NULL
+        BEGIN
+            RAISERROR('Los campos de nombre, apellido y género son obligatorios.', 16, 1);
+        END
+
+        -- Insertar nuevo propietario
+        INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)
+        VALUES (@ownerName, @ownerLastName, @ownerGender, @ownerPhoneNumber, @ownerGmail);
+
+        -- Obtener el ID del propietario recién insertado
+        DECLARE @newOwnerId INT = SCOPE_IDENTITY();
+
+        COMMIT TRANSACTION;
+        
+        -- Devolver el ID del nuevo propietario
+        SELECT @newOwnerId AS NewOwnerId;
+    END TRY
+    BEGIN CATCH
+        -- Si hay un error, revertir la transacción
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        -- Lanzar el error original
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE(),
+                @ErrorSeverity INT = ERROR_SEVERITY(),
+                @ErrorState INT = ERROR_STATE();
+
+        RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END;
+
+
+--SEGUNDO PROCEDIMIENTO
+-- Procedimiento para agregar una nueva farmacia con manejo de transacciones
+CREATE PROCEDURE AgregarFarmacia
+(
+    @pharmacyName NVARCHAR(50),
+    @ownerId INT,
+    @locationId INT
+)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Validar datos de entrada
+        IF @pharmacyName IS NULL OR @ownerId IS NULL OR @locationId IS NULL
+        BEGIN
+            RAISERROR('Todos los campos son obligatorios para agregar una farmacia.', 16, 1);
+        END
+
+        -- Verificar que el propietario existe
+        IF NOT EXISTS (SELECT 1 FROM ownerTable WHERE ownerId = @ownerId)
+        BEGIN
+            RAISERROR('El propietario especificado no existe.', 16, 1);
+        END
+
+        -- Verificar que la ubicación existe
+        IF NOT EXISTS (SELECT 1 FROM locationTable WHERE locationId = @locationId)
+        BEGIN
+            RAISERROR('La ubicación especificada no existe.', 16, 1);
+        END
+
+        -- Insertar nueva farmacia
+        INSERT INTO pharmacyTable (pharmacyName, ownerId, locationId)
+        VALUES (@pharmacyName, @ownerId, @locationId);
+
+        -- Obtener el ID de la farmacia recién insertada
+        DECLARE @newPharmacyId INT = SCOPE_IDENTITY();
+
+        COMMIT TRANSACTION;
+        
+        -- Devolver el ID de la nueva farmacia
+        SELECT @newPharmacyId AS NewPharmacyId;
+    END TRY
+    BEGIN CATCH
+        -- Si hay un error, revertir la transacción
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        -- Lanzar el error original
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE(),
+                @ErrorSeverity INT = ERROR_SEVERITY(),
+                @ErrorState INT = ERROR_STATE();
+
+        RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END;
+
+--TERCER PROCEDIMIENTO
+-- Procedimiento para agregar un medicamento al inventario con manejo de transacciones
+CREATE PROCEDURE AgregarMedicamentoInventario
+(
+    @pharmacyId INT,
+    @medicineId INT,
+    @stock INT
+)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Validar datos de entrada
+        IF @pharmacyId IS NULL OR @medicineId IS NULL OR @stock < 0
+        BEGIN
+            RAISERROR('Datos inválidos. Verifique los valores de farmacia, medicamento y stock.', 16, 1);
+        END
+
+        -- Verificar que la farmacia existe
+        IF NOT EXISTS (SELECT 1 FROM pharmacyTable WHERE pharmacyId = @pharmacyId)
+        BEGIN
+            RAISERROR('La farmacia especificada no existe.', 16, 1);
+        END
+
+        -- Verificar que el medicamento existe
+        IF NOT EXISTS (SELECT 1 FROM medicineTable WHERE medicineId = @medicineId)
+        BEGIN
+            RAISERROR('El medicamento especificado no existe.', 16, 1);
+        END
+
+        -- Verificar si ya existe el registro en inventario
+        IF EXISTS (SELECT 1 FROM inventoryTable WHERE pharmacyId = @pharmacyId AND medicineId = @medicineId)
+        BEGIN
+            -- Si ya existe, actualizar el stock
+            UPDATE inventoryTable
+            SET stock = stock + @stock
+            WHERE pharmacyId = @pharmacyId AND medicineId = @medicineId;
+        END
+        ELSE
+        BEGIN
+            -- Si no existe, insertar nuevo registro de inventario
+            INSERT INTO inventoryTable (pharmacyId, medicineId, stock)
+            VALUES (@pharmacyId, @medicineId, @stock);
+        END
+
+        COMMIT TRANSACTION;
+        
+        -- Confirmar operación exitosa
+        SELECT 1 AS OperationStatus;
+    END TRY
+    BEGIN CATCH
+        -- Si hay un error, revertir la transacción
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        -- Lanzar el error original
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE(),
+                @ErrorSeverity INT = ERROR_SEVERITY(),
+                @ErrorState INT = ERROR_STATE();
+
+        RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END;
+
+SELECT * FROM sys.procedures 
+WHERE name IN ('AgregarPropietario', 'AgregarFarmacia', 'AgregarMedicamentoInventario')
