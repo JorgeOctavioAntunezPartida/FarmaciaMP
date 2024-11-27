@@ -39,15 +39,16 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.txt_locationCity = new System.Windows.Forms.TextBox();
             this.txt_locationAddress = new System.Windows.Forms.TextBox();
-            this.lbl_estadoReg = new System.Windows.Forms.Label();
-            this.lbl_ciudadReg = new System.Windows.Forms.Label();
-            this.lbl_idCiudad = new System.Windows.Forms.Label();
+            this.lbl_locationState = new System.Windows.Forms.Label();
+            this.lbl_locationCity = new System.Windows.Forms.Label();
+            this.lbl_locationAddress = new System.Windows.Forms.Label();
             this.cbx_locationState = new System.Windows.Forms.ComboBox();
             this.gbx_insert = new System.Windows.Forms.GroupBox();
             this.btn_deleteUpdate = new System.Windows.Forms.Button();
             this.gbx_table = new System.Windows.Forms.GroupBox();
+            this.cbx_filterState = new System.Windows.Forms.ComboBox();
             this.dgv_locationTable = new System.Windows.Forms.DataGridView();
-            this.cbx_filter = new System.Windows.Forms.ComboBox();
+            this.lbl_filterState = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.gbx_insert.SuspendLayout();
             this.gbx_table.SuspendLayout();
@@ -203,35 +204,35 @@
             this.txt_locationAddress.Size = new System.Drawing.Size(305, 70);
             this.txt_locationAddress.TabIndex = 5;
             // 
-            // lbl_estadoReg
+            // lbl_locationState
             // 
-            this.lbl_estadoReg.AutoSize = true;
-            this.lbl_estadoReg.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_estadoReg.Location = new System.Drawing.Point(6, 161);
-            this.lbl_estadoReg.Name = "lbl_estadoReg";
-            this.lbl_estadoReg.Size = new System.Drawing.Size(68, 18);
-            this.lbl_estadoReg.TabIndex = 34;
-            this.lbl_estadoReg.Text = "Estado";
+            this.lbl_locationState.AutoSize = true;
+            this.lbl_locationState.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_locationState.Location = new System.Drawing.Point(6, 161);
+            this.lbl_locationState.Name = "lbl_locationState";
+            this.lbl_locationState.Size = new System.Drawing.Size(68, 18);
+            this.lbl_locationState.TabIndex = 34;
+            this.lbl_locationState.Text = "Estado";
             // 
-            // lbl_ciudadReg
+            // lbl_locationCity
             // 
-            this.lbl_ciudadReg.AutoSize = true;
-            this.lbl_ciudadReg.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ciudadReg.Location = new System.Drawing.Point(6, 110);
-            this.lbl_ciudadReg.Name = "lbl_ciudadReg";
-            this.lbl_ciudadReg.Size = new System.Drawing.Size(68, 18);
-            this.lbl_ciudadReg.TabIndex = 33;
-            this.lbl_ciudadReg.Text = "Ciudad";
+            this.lbl_locationCity.AutoSize = true;
+            this.lbl_locationCity.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_locationCity.Location = new System.Drawing.Point(6, 110);
+            this.lbl_locationCity.Name = "lbl_locationCity";
+            this.lbl_locationCity.Size = new System.Drawing.Size(68, 18);
+            this.lbl_locationCity.TabIndex = 33;
+            this.lbl_locationCity.Text = "Ciudad";
             // 
-            // lbl_idCiudad
+            // lbl_locationAddress
             // 
-            this.lbl_idCiudad.AutoSize = true;
-            this.lbl_idCiudad.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idCiudad.Location = new System.Drawing.Point(6, 16);
-            this.lbl_idCiudad.Name = "lbl_idCiudad";
-            this.lbl_idCiudad.Size = new System.Drawing.Size(88, 18);
-            this.lbl_idCiudad.TabIndex = 32;
-            this.lbl_idCiudad.Text = "Dirección";
+            this.lbl_locationAddress.AutoSize = true;
+            this.lbl_locationAddress.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_locationAddress.Location = new System.Drawing.Point(6, 16);
+            this.lbl_locationAddress.Name = "lbl_locationAddress";
+            this.lbl_locationAddress.Size = new System.Drawing.Size(88, 18);
+            this.lbl_locationAddress.TabIndex = 32;
+            this.lbl_locationAddress.Text = "Dirección";
             // 
             // cbx_locationState
             // 
@@ -278,10 +279,10 @@
             // 
             // gbx_insert
             // 
-            this.gbx_insert.Controls.Add(this.lbl_idCiudad);
+            this.gbx_insert.Controls.Add(this.lbl_locationAddress);
             this.gbx_insert.Controls.Add(this.cbx_locationState);
-            this.gbx_insert.Controls.Add(this.lbl_ciudadReg);
-            this.gbx_insert.Controls.Add(this.lbl_estadoReg);
+            this.gbx_insert.Controls.Add(this.lbl_locationCity);
+            this.gbx_insert.Controls.Add(this.lbl_locationState);
             this.gbx_insert.Controls.Add(this.txt_locationAddress);
             this.gbx_insert.Controls.Add(this.txt_locationCity);
             this.gbx_insert.Location = new System.Drawing.Point(230, 264);
@@ -303,10 +304,12 @@
             this.btn_deleteUpdate.TabIndex = 1;
             this.btn_deleteUpdate.Text = "...";
             this.btn_deleteUpdate.UseVisualStyleBackColor = false;
+            this.btn_deleteUpdate.Click += new System.EventHandler(this.btn_deleteUpdate_Click);
             // 
             // gbx_table
             // 
-            this.gbx_table.Controls.Add(this.cbx_filter);
+            this.gbx_table.Controls.Add(this.lbl_filterState);
+            this.gbx_table.Controls.Add(this.cbx_filterState);
             this.gbx_table.Controls.Add(this.dgv_locationTable);
             this.gbx_table.Controls.Add(this.btn_deleteUpdate);
             this.gbx_table.Location = new System.Drawing.Point(230, 264);
@@ -316,22 +319,13 @@
             this.gbx_table.TabStop = false;
             this.gbx_table.Visible = false;
             // 
-            // dgv_locationTable
+            // cbx_filterState
             // 
-            this.dgv_locationTable.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_locationTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_locationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_locationTable.Location = new System.Drawing.Point(6, 18);
-            this.dgv_locationTable.Name = "dgv_locationTable";
-            this.dgv_locationTable.Size = new System.Drawing.Size(308, 198);
-            this.dgv_locationTable.TabIndex = 0;
-            // 
-            // cbx_filter
-            // 
-            this.cbx_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_filter.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_filter.FormattingEnabled = true;
-            this.cbx_filter.Items.AddRange(new object[] {
+            this.cbx_filterState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_filterState.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_filterState.FormattingEnabled = true;
+            this.cbx_filterState.Items.AddRange(new object[] {
+            "...",
             "Aguascalientes",
             "Baja California",
             "Baja California Sur",
@@ -364,10 +358,31 @@
             "Veracruz",
             "Yucatán",
             "Zacatecas"});
-            this.cbx_filter.Location = new System.Drawing.Point(112, 245);
-            this.cbx_filter.Name = "cbx_filter";
-            this.cbx_filter.Size = new System.Drawing.Size(202, 26);
-            this.cbx_filter.TabIndex = 2;
+            this.cbx_filterState.Location = new System.Drawing.Point(112, 245);
+            this.cbx_filterState.Name = "cbx_filterState";
+            this.cbx_filterState.Size = new System.Drawing.Size(202, 26);
+            this.cbx_filterState.TabIndex = 2;
+            this.cbx_filterState.SelectedIndexChanged += new System.EventHandler(this.cbx_filterCity_SelectedIndexChanged);
+            // 
+            // dgv_locationTable
+            // 
+            this.dgv_locationTable.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_locationTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_locationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_locationTable.Location = new System.Drawing.Point(6, 18);
+            this.dgv_locationTable.Name = "dgv_locationTable";
+            this.dgv_locationTable.Size = new System.Drawing.Size(308, 198);
+            this.dgv_locationTable.TabIndex = 0;
+            // 
+            // lbl_filterState
+            // 
+            this.lbl_filterState.AutoSize = true;
+            this.lbl_filterState.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_filterState.Location = new System.Drawing.Point(112, 224);
+            this.lbl_filterState.Name = "lbl_filterState";
+            this.lbl_filterState.Size = new System.Drawing.Size(64, 18);
+            this.lbl_filterState.TabIndex = 32;
+            this.lbl_filterState.Text = "Estado";
             // 
             // frm_ciudad
             // 
@@ -397,6 +412,7 @@
             this.gbx_insert.ResumeLayout(false);
             this.gbx_insert.PerformLayout();
             this.gbx_table.ResumeLayout(false);
+            this.gbx_table.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_locationTable)).EndInit();
             this.ResumeLayout(false);
 
@@ -415,14 +431,15 @@
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.TextBox txt_locationCity;
         private System.Windows.Forms.TextBox txt_locationAddress;
-        private System.Windows.Forms.Label lbl_estadoReg;
-        private System.Windows.Forms.Label lbl_ciudadReg;
-        private System.Windows.Forms.Label lbl_idCiudad;
+        private System.Windows.Forms.Label lbl_locationState;
+        private System.Windows.Forms.Label lbl_locationCity;
+        private System.Windows.Forms.Label lbl_locationAddress;
         private System.Windows.Forms.ComboBox cbx_locationState;
         private System.Windows.Forms.GroupBox gbx_insert;
         private System.Windows.Forms.Button btn_deleteUpdate;
         private System.Windows.Forms.GroupBox gbx_table;
         private System.Windows.Forms.DataGridView dgv_locationTable;
-        private System.Windows.Forms.ComboBox cbx_filter;
+        private System.Windows.Forms.ComboBox cbx_filterState;
+        private System.Windows.Forms.Label lbl_filterState;
     }
 }
