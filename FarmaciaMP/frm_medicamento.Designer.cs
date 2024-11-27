@@ -37,19 +37,18 @@
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.descripcionMedi = new System.Windows.Forms.TextBox();
-            this.lbl_descripcionMedi = new System.Windows.Forms.Label();
-            this.precioMedi = new System.Windows.Forms.TextBox();
-            this.similarMedi = new System.Windows.Forms.TextBox();
-            this.genericomedi = new System.Windows.Forms.TextBox();
-            this.nomComercial = new System.Windows.Forms.TextBox();
-            this.idMedi = new System.Windows.Forms.TextBox();
-            this.lbl_precioMedi = new System.Windows.Forms.Label();
-            this.lbl_similarMedi = new System.Windows.Forms.Label();
-            this.lbl_nombreGenerico = new System.Windows.Forms.Label();
-            this.lbl_nombreComercial = new System.Windows.Forms.Label();
-            this.lbl_idMedi = new System.Windows.Forms.Label();
+            this.txt_medicineName = new System.Windows.Forms.TextBox();
+            this.lbl_medicineName = new System.Windows.Forms.Label();
+            this.gbx_insert = new System.Windows.Forms.GroupBox();
+            this.pbx_icon = new System.Windows.Forms.PictureBox();
+            this.gbx_table = new System.Windows.Forms.GroupBox();
+            this.btn_deleteUpdate = new System.Windows.Forms.Button();
+            this.dgv_ownerTable = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
+            this.gbx_insert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_icon)).BeginInit();
+            this.gbx_table.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ownerTable)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_inicio
@@ -63,7 +62,7 @@
             this.btn_inicio.Location = new System.Drawing.Point(60, 600);
             this.btn_inicio.Name = "btn_inicio";
             this.btn_inicio.Size = new System.Drawing.Size(60, 60);
-            this.btn_inicio.TabIndex = 23;
+            this.btn_inicio.TabIndex = 4;
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
@@ -88,7 +87,7 @@
             this.btn_consulta.Location = new System.Drawing.Point(60, 462);
             this.btn_consulta.Name = "btn_consulta";
             this.btn_consulta.Size = new System.Drawing.Size(60, 60);
-            this.btn_consulta.TabIndex = 22;
+            this.btn_consulta.TabIndex = 3;
             this.btn_consulta.UseVisualStyleBackColor = false;
             this.btn_consulta.Click += new System.EventHandler(this.btn_consulta_Click);
             // 
@@ -103,7 +102,7 @@
             this.btn_ciudad.Location = new System.Drawing.Point(60, 396);
             this.btn_ciudad.Name = "btn_ciudad";
             this.btn_ciudad.Size = new System.Drawing.Size(60, 60);
-            this.btn_ciudad.TabIndex = 21;
+            this.btn_ciudad.TabIndex = 2;
             this.btn_ciudad.UseVisualStyleBackColor = false;
             this.btn_ciudad.Click += new System.EventHandler(this.btn_ciudad_Click);
             // 
@@ -118,7 +117,7 @@
             this.btn_farmacia.Location = new System.Drawing.Point(60, 330);
             this.btn_farmacia.Name = "btn_farmacia";
             this.btn_farmacia.Size = new System.Drawing.Size(60, 60);
-            this.btn_farmacia.TabIndex = 19;
+            this.btn_farmacia.TabIndex = 1;
             this.btn_farmacia.UseVisualStyleBackColor = false;
             this.btn_farmacia.Click += new System.EventHandler(this.btn_farmacia_Click);
             // 
@@ -133,7 +132,7 @@
             this.btn_propietario.Location = new System.Drawing.Point(60, 264);
             this.btn_propietario.Name = "btn_propietario";
             this.btn_propietario.Size = new System.Drawing.Size(60, 60);
-            this.btn_propietario.TabIndex = 18;
+            this.btn_propietario.TabIndex = 0;
             this.btn_propietario.UseVisualStyleBackColor = false;
             this.btn_propietario.Click += new System.EventHandler(this.btn_propietario_Click);
             // 
@@ -147,7 +146,7 @@
             this.btn_modificar.Location = new System.Drawing.Point(672, 376);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(100, 50);
-            this.btn_modificar.TabIndex = 40;
+            this.btn_modificar.TabIndex = 9;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
             this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
@@ -162,7 +161,7 @@
             this.btn_eliminar.Location = new System.Drawing.Point(672, 320);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(100, 50);
-            this.btn_eliminar.TabIndex = 39;
+            this.btn_eliminar.TabIndex = 8;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
@@ -177,119 +176,87 @@
             this.btn_guardar.Location = new System.Drawing.Point(672, 264);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(100, 50);
-            this.btn_guardar.TabIndex = 38;
+            this.btn_guardar.TabIndex = 7;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // descripcionMedi
+            // txt_medicineName
             // 
-            this.descripcionMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripcionMedi.Location = new System.Drawing.Point(200, 540);
-            this.descripcionMedi.Multiline = true;
-            this.descripcionMedi.Name = "descripcionMedi";
-            this.descripcionMedi.Size = new System.Drawing.Size(200, 100);
-            this.descripcionMedi.TabIndex = 37;
+            this.txt_medicineName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_medicineName.Location = new System.Drawing.Point(9, 37);
+            this.txt_medicineName.MaxLength = 49;
+            this.txt_medicineName.Name = "txt_medicineName";
+            this.txt_medicineName.Size = new System.Drawing.Size(305, 27);
+            this.txt_medicineName.TabIndex = 5;
             // 
-            // lbl_descripcionMedi
+            // lbl_medicineName
             // 
-            this.lbl_descripcionMedi.AutoSize = true;
-            this.lbl_descripcionMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_descripcionMedi.Location = new System.Drawing.Point(197, 519);
-            this.lbl_descripcionMedi.Name = "lbl_descripcionMedi";
-            this.lbl_descripcionMedi.Size = new System.Drawing.Size(108, 18);
-            this.lbl_descripcionMedi.TabIndex = 36;
-            this.lbl_descripcionMedi.Text = "Descripción";
+            this.lbl_medicineName.AutoSize = true;
+            this.lbl_medicineName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_medicineName.Location = new System.Drawing.Point(6, 16);
+            this.lbl_medicineName.Name = "lbl_medicineName";
+            this.lbl_medicineName.Size = new System.Drawing.Size(125, 18);
+            this.lbl_medicineName.TabIndex = 6;
+            this.lbl_medicineName.Text = "Medicamento";
             // 
-            // precioMedi
+            // gbx_insert
             // 
-            this.precioMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioMedi.Location = new System.Drawing.Point(200, 489);
-            this.precioMedi.Name = "precioMedi";
-            this.precioMedi.Size = new System.Drawing.Size(200, 27);
-            this.precioMedi.TabIndex = 35;
+            this.gbx_insert.Controls.Add(this.pbx_icon);
+            this.gbx_insert.Controls.Add(this.lbl_medicineName);
+            this.gbx_insert.Controls.Add(this.txt_medicineName);
+            this.gbx_insert.Location = new System.Drawing.Point(230, 264);
+            this.gbx_insert.Name = "gbx_insert";
+            this.gbx_insert.Size = new System.Drawing.Size(320, 280);
+            this.gbx_insert.TabIndex = 6;
+            this.gbx_insert.TabStop = false;
             // 
-            // similarMedi
+            // pbx_icon
             // 
-            this.similarMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.similarMedi.Location = new System.Drawing.Point(200, 438);
-            this.similarMedi.Name = "similarMedi";
-            this.similarMedi.Size = new System.Drawing.Size(300, 27);
-            this.similarMedi.TabIndex = 34;
+            this.pbx_icon.BackgroundImage = global::FarmaciaMP.Properties.Resources.medicamentoicon;
+            this.pbx_icon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbx_icon.Location = new System.Drawing.Point(9, 70);
+            this.pbx_icon.Name = "pbx_icon";
+            this.pbx_icon.Size = new System.Drawing.Size(305, 204);
+            this.pbx_icon.TabIndex = 7;
+            this.pbx_icon.TabStop = false;
             // 
-            // genericomedi
+            // gbx_table
             // 
-            this.genericomedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genericomedi.Location = new System.Drawing.Point(200, 387);
-            this.genericomedi.Name = "genericomedi";
-            this.genericomedi.Size = new System.Drawing.Size(300, 27);
-            this.genericomedi.TabIndex = 33;
+            this.gbx_table.Controls.Add(this.btn_deleteUpdate);
+            this.gbx_table.Controls.Add(this.dgv_ownerTable);
+            this.gbx_table.Location = new System.Drawing.Point(230, 264);
+            this.gbx_table.Name = "gbx_table";
+            this.gbx_table.Size = new System.Drawing.Size(320, 280);
+            this.gbx_table.TabIndex = 7;
+            this.gbx_table.TabStop = false;
+            this.gbx_table.Visible = false;
             // 
-            // nomComercial
+            // btn_deleteUpdate
             // 
-            this.nomComercial.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomComercial.Location = new System.Drawing.Point(200, 336);
-            this.nomComercial.Name = "nomComercial";
-            this.nomComercial.Size = new System.Drawing.Size(300, 27);
-            this.nomComercial.TabIndex = 32;
+            this.btn_deleteUpdate.BackColor = System.Drawing.Color.Gray;
+            this.btn_deleteUpdate.FlatAppearance.BorderSize = 2;
+            this.btn_deleteUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deleteUpdate.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_deleteUpdate.ForeColor = System.Drawing.Color.White;
+            this.btn_deleteUpdate.Location = new System.Drawing.Point(6, 224);
+            this.btn_deleteUpdate.Name = "btn_deleteUpdate";
+            this.btn_deleteUpdate.Size = new System.Drawing.Size(100, 50);
+            this.btn_deleteUpdate.TabIndex = 20;
+            this.btn_deleteUpdate.Text = "...";
+            this.btn_deleteUpdate.UseVisualStyleBackColor = false;
             // 
-            // idMedi
+            // dgv_ownerTable
             // 
-            this.idMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idMedi.Location = new System.Drawing.Point(200, 285);
-            this.idMedi.Name = "idMedi";
-            this.idMedi.Size = new System.Drawing.Size(200, 27);
-            this.idMedi.TabIndex = 31;
-            // 
-            // lbl_precioMedi
-            // 
-            this.lbl_precioMedi.AutoSize = true;
-            this.lbl_precioMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_precioMedi.Location = new System.Drawing.Point(197, 468);
-            this.lbl_precioMedi.Name = "lbl_precioMedi";
-            this.lbl_precioMedi.Size = new System.Drawing.Size(63, 18);
-            this.lbl_precioMedi.TabIndex = 30;
-            this.lbl_precioMedi.Text = "Precio";
-            // 
-            // lbl_similarMedi
-            // 
-            this.lbl_similarMedi.AutoSize = true;
-            this.lbl_similarMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_similarMedi.Location = new System.Drawing.Point(197, 417);
-            this.lbl_similarMedi.Name = "lbl_similarMedi";
-            this.lbl_similarMedi.Size = new System.Drawing.Size(215, 18);
-            this.lbl_similarMedi.TabIndex = 29;
-            this.lbl_similarMedi.Text = "Medicamentos similares";
-            // 
-            // lbl_nombreGenerico
-            // 
-            this.lbl_nombreGenerico.AutoSize = true;
-            this.lbl_nombreGenerico.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nombreGenerico.Location = new System.Drawing.Point(197, 366);
-            this.lbl_nombreGenerico.Name = "lbl_nombreGenerico";
-            this.lbl_nombreGenerico.Size = new System.Drawing.Size(159, 18);
-            this.lbl_nombreGenerico.TabIndex = 28;
-            this.lbl_nombreGenerico.Text = "Nombre genérico";
-            // 
-            // lbl_nombreComercial
-            // 
-            this.lbl_nombreComercial.AutoSize = true;
-            this.lbl_nombreComercial.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nombreComercial.Location = new System.Drawing.Point(197, 315);
-            this.lbl_nombreComercial.Name = "lbl_nombreComercial";
-            this.lbl_nombreComercial.Size = new System.Drawing.Size(166, 18);
-            this.lbl_nombreComercial.TabIndex = 27;
-            this.lbl_nombreComercial.Text = "Número comercial";
-            // 
-            // lbl_idMedi
-            // 
-            this.lbl_idMedi.AutoSize = true;
-            this.lbl_idMedi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idMedi.Location = new System.Drawing.Point(197, 264);
-            this.lbl_idMedi.Name = "lbl_idMedi";
-            this.lbl_idMedi.Size = new System.Drawing.Size(151, 18);
-            this.lbl_idMedi.TabIndex = 26;
-            this.lbl_idMedi.Text = "ID Medicamento";
+            this.dgv_ownerTable.AllowUserToResizeColumns = false;
+            this.dgv_ownerTable.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_ownerTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_ownerTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ownerTable.Location = new System.Drawing.Point(6, 18);
+            this.dgv_ownerTable.Name = "dgv_ownerTable";
+            this.dgv_ownerTable.ReadOnly = true;
+            this.dgv_ownerTable.Size = new System.Drawing.Size(308, 198);
+            this.dgv_ownerTable.TabIndex = 0;
             // 
             // frm_medicamento
             // 
@@ -299,21 +266,11 @@
             this.BackgroundImage = global::FarmaciaMP.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.gbx_table);
+            this.Controls.Add(this.gbx_insert);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.descripcionMedi);
-            this.Controls.Add(this.lbl_descripcionMedi);
-            this.Controls.Add(this.precioMedi);
-            this.Controls.Add(this.similarMedi);
-            this.Controls.Add(this.genericomedi);
-            this.Controls.Add(this.nomComercial);
-            this.Controls.Add(this.idMedi);
-            this.Controls.Add(this.lbl_precioMedi);
-            this.Controls.Add(this.lbl_similarMedi);
-            this.Controls.Add(this.lbl_nombreGenerico);
-            this.Controls.Add(this.lbl_nombreComercial);
-            this.Controls.Add(this.lbl_idMedi);
             this.Controls.Add(this.btn_inicio);
             this.Controls.Add(this.pbx_encavezado);
             this.Controls.Add(this.btn_consulta);
@@ -326,8 +283,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medicamentos";
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).EndInit();
+            this.gbx_insert.ResumeLayout(false);
+            this.gbx_insert.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_icon)).EndInit();
+            this.gbx_table.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ownerTable)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -342,17 +303,12 @@
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.TextBox descripcionMedi;
-        private System.Windows.Forms.Label lbl_descripcionMedi;
-        private System.Windows.Forms.TextBox precioMedi;
-        private System.Windows.Forms.TextBox similarMedi;
-        private System.Windows.Forms.TextBox genericomedi;
-        private System.Windows.Forms.TextBox nomComercial;
-        private System.Windows.Forms.TextBox idMedi;
-        private System.Windows.Forms.Label lbl_precioMedi;
-        private System.Windows.Forms.Label lbl_similarMedi;
-        private System.Windows.Forms.Label lbl_nombreGenerico;
-        private System.Windows.Forms.Label lbl_nombreComercial;
-        private System.Windows.Forms.Label lbl_idMedi;
+        private System.Windows.Forms.TextBox txt_medicineName;
+        private System.Windows.Forms.Label lbl_medicineName;
+        private System.Windows.Forms.GroupBox gbx_insert;
+        private System.Windows.Forms.PictureBox pbx_icon;
+        private System.Windows.Forms.GroupBox gbx_table;
+        private System.Windows.Forms.Button btn_deleteUpdate;
+        private System.Windows.Forms.DataGridView dgv_ownerTable;
     }
 }
