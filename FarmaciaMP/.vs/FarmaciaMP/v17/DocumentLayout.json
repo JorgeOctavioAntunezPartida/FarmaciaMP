@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\jorge\\documents\\github\\farmaciamp\\farmaciamp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_propietario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_propietario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,23 +26,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T04:05:53.426Z",
+              "WhenOpened": "2024-11-27T07:07:20.788Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "frm_propietario.cs",
               "DocumentMoniker": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_propietario.cs",
               "RelativeDocumentMoniker": "frm_propietario.cs",
@@ -55,20 +55,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "frm_ciudad.cs",
               "DocumentMoniker": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs",
               "RelativeDocumentMoniker": "frm_ciudad.cs",
               "ToolTip": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs",
               "RelativeToolTip": "frm_ciudad.cs",
-              "ViewState": "AgIAADkBAAAAAAAAAAAIwGABAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwJQBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T04:05:53.428Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "frm_ciudad.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs",
               "RelativeDocumentMoniker": "frm_ciudad.cs",
