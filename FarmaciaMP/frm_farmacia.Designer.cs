@@ -37,21 +37,15 @@
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.habFarmacia = new System.Windows.Forms.TextBox();
-            this.lbl_habFarmcia = new System.Windows.Forms.Label();
-            this.estadoFarmacia = new System.Windows.Forms.TextBox();
-            this.cdFarmacia = new System.Windows.Forms.TextBox();
-            this.direFarmacia = new System.Windows.Forms.TextBox();
-            this.idProp = new System.Windows.Forms.TextBox();
-            this.idFarmacia = new System.Windows.Forms.TextBox();
-            this.lbl_estadoFarmacia = new System.Windows.Forms.Label();
-            this.lbl_cdFarmacia = new System.Windows.Forms.Label();
-            this.lbl_direFarmacia = new System.Windows.Forms.Label();
-            this.lbl_idProp = new System.Windows.Forms.Label();
-            this.lbl_idFarmacia = new System.Windows.Forms.Label();
-            this.superFarmacia = new System.Windows.Forms.TextBox();
-            this.lbl_superFarmacia = new System.Windows.Forms.Label();
+            this.txt_pharmacyName = new System.Windows.Forms.TextBox();
+            this.lbl_locationId = new System.Windows.Forms.Label();
+            this.lbl_ownerId = new System.Windows.Forms.Label();
+            this.lbl_pharmacyName = new System.Windows.Forms.Label();
+            this.gbx_insert = new System.Windows.Forms.GroupBox();
+            this.cbx_ownerId = new System.Windows.Forms.ComboBox();
+            this.cbx_locationId = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
+            this.gbx_insert.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_inicio
@@ -65,7 +59,7 @@
             this.btn_inicio.Location = new System.Drawing.Point(60, 600);
             this.btn_inicio.Name = "btn_inicio";
             this.btn_inicio.Size = new System.Drawing.Size(60, 60);
-            this.btn_inicio.TabIndex = 16;
+            this.btn_inicio.TabIndex = 4;
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
@@ -90,7 +84,7 @@
             this.btn_consulta.Location = new System.Drawing.Point(60, 462);
             this.btn_consulta.Name = "btn_consulta";
             this.btn_consulta.Size = new System.Drawing.Size(60, 60);
-            this.btn_consulta.TabIndex = 15;
+            this.btn_consulta.TabIndex = 3;
             this.btn_consulta.UseVisualStyleBackColor = false;
             this.btn_consulta.Click += new System.EventHandler(this.btn_consulta_Click);
             // 
@@ -105,7 +99,7 @@
             this.btn_ciudad.Location = new System.Drawing.Point(60, 396);
             this.btn_ciudad.Name = "btn_ciudad";
             this.btn_ciudad.Size = new System.Drawing.Size(60, 60);
-            this.btn_ciudad.TabIndex = 14;
+            this.btn_ciudad.TabIndex = 2;
             this.btn_ciudad.UseVisualStyleBackColor = false;
             this.btn_ciudad.Click += new System.EventHandler(this.btn_ciudad_Click);
             // 
@@ -120,7 +114,7 @@
             this.btn_medicamento.Location = new System.Drawing.Point(60, 330);
             this.btn_medicamento.Name = "btn_medicamento";
             this.btn_medicamento.Size = new System.Drawing.Size(60, 60);
-            this.btn_medicamento.TabIndex = 13;
+            this.btn_medicamento.TabIndex = 1;
             this.btn_medicamento.UseVisualStyleBackColor = false;
             this.btn_medicamento.Click += new System.EventHandler(this.btn_medicamento_Click);
             // 
@@ -135,7 +129,7 @@
             this.btn_propietario.Location = new System.Drawing.Point(60, 264);
             this.btn_propietario.Name = "btn_propietario";
             this.btn_propietario.Size = new System.Drawing.Size(60, 60);
-            this.btn_propietario.TabIndex = 11;
+            this.btn_propietario.TabIndex = 0;
             this.btn_propietario.UseVisualStyleBackColor = false;
             this.btn_propietario.Click += new System.EventHandler(this.btn_propietario_Click);
             // 
@@ -149,7 +143,7 @@
             this.btn_modificar.Location = new System.Drawing.Point(672, 376);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(100, 50);
-            this.btn_modificar.TabIndex = 41;
+            this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
             this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
@@ -164,7 +158,7 @@
             this.btn_eliminar.Location = new System.Drawing.Point(672, 320);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(100, 50);
-            this.btn_eliminar.TabIndex = 40;
+            this.btn_eliminar.TabIndex = 6;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
@@ -179,136 +173,84 @@
             this.btn_guardar.Location = new System.Drawing.Point(672, 264);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(100, 50);
-            this.btn_guardar.TabIndex = 39;
+            this.btn_guardar.TabIndex = 5;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // habFarmacia
+            // txt_pharmacyName
             // 
-            this.habFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.habFarmacia.Location = new System.Drawing.Point(200, 540);
-            this.habFarmacia.Name = "habFarmacia";
-            this.habFarmacia.Size = new System.Drawing.Size(200, 27);
-            this.habFarmacia.TabIndex = 37;
+            this.txt_pharmacyName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pharmacyName.Location = new System.Drawing.Point(9, 37);
+            this.txt_pharmacyName.MaxLength = 49;
+            this.txt_pharmacyName.Name = "txt_pharmacyName";
+            this.txt_pharmacyName.Size = new System.Drawing.Size(300, 27);
+            this.txt_pharmacyName.TabIndex = 9;
             // 
-            // lbl_habFarmcia
+            // lbl_locationId
             // 
-            this.lbl_habFarmcia.AutoSize = true;
-            this.lbl_habFarmcia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_habFarmcia.Location = new System.Drawing.Point(197, 519);
-            this.lbl_habFarmcia.Name = "lbl_habFarmcia";
-            this.lbl_habFarmcia.Size = new System.Drawing.Size(320, 18);
-            this.lbl_habFarmcia.TabIndex = 36;
-            this.lbl_habFarmcia.Text = "Cantidad de habitantes de la ciudad";
+            this.lbl_locationId.AutoSize = true;
+            this.lbl_locationId.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_locationId.Location = new System.Drawing.Point(6, 118);
+            this.lbl_locationId.Name = "lbl_locationId";
+            this.lbl_locationId.Size = new System.Drawing.Size(91, 18);
+            this.lbl_locationId.TabIndex = 14;
+            this.lbl_locationId.Text = "Ubicación";
             // 
-            // estadoFarmacia
+            // lbl_ownerId
             // 
-            this.estadoFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estadoFarmacia.Location = new System.Drawing.Point(200, 489);
-            this.estadoFarmacia.Name = "estadoFarmacia";
-            this.estadoFarmacia.Size = new System.Drawing.Size(200, 27);
-            this.estadoFarmacia.TabIndex = 35;
+            this.lbl_ownerId.AutoSize = true;
+            this.lbl_ownerId.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ownerId.Location = new System.Drawing.Point(6, 67);
+            this.lbl_ownerId.Name = "lbl_ownerId";
+            this.lbl_ownerId.Size = new System.Drawing.Size(106, 18);
+            this.lbl_ownerId.TabIndex = 13;
+            this.lbl_ownerId.Text = "Propietario";
             // 
-            // cdFarmacia
+            // lbl_pharmacyName
             // 
-            this.cdFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cdFarmacia.Location = new System.Drawing.Point(200, 438);
-            this.cdFarmacia.Name = "cdFarmacia";
-            this.cdFarmacia.Size = new System.Drawing.Size(200, 27);
-            this.cdFarmacia.TabIndex = 34;
+            this.lbl_pharmacyName.AutoSize = true;
+            this.lbl_pharmacyName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pharmacyName.Location = new System.Drawing.Point(6, 16);
+            this.lbl_pharmacyName.Name = "lbl_pharmacyName";
+            this.lbl_pharmacyName.Size = new System.Drawing.Size(202, 18);
+            this.lbl_pharmacyName.TabIndex = 12;
+            this.lbl_pharmacyName.Text = "Nombre de la sucursal";
             // 
-            // direFarmacia
+            // gbx_insert
             // 
-            this.direFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direFarmacia.Location = new System.Drawing.Point(200, 387);
-            this.direFarmacia.Name = "direFarmacia";
-            this.direFarmacia.Size = new System.Drawing.Size(300, 27);
-            this.direFarmacia.TabIndex = 33;
+            this.gbx_insert.Controls.Add(this.cbx_locationId);
+            this.gbx_insert.Controls.Add(this.cbx_ownerId);
+            this.gbx_insert.Controls.Add(this.lbl_pharmacyName);
+            this.gbx_insert.Controls.Add(this.lbl_ownerId);
+            this.gbx_insert.Controls.Add(this.lbl_locationId);
+            this.gbx_insert.Controls.Add(this.txt_pharmacyName);
+            this.gbx_insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbx_insert.Location = new System.Drawing.Point(230, 264);
+            this.gbx_insert.Name = "gbx_insert";
+            this.gbx_insert.Size = new System.Drawing.Size(320, 280);
+            this.gbx_insert.TabIndex = 8;
+            this.gbx_insert.TabStop = false;
             // 
-            // idProp
+            // cbx_ownerId
             // 
-            this.idProp.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idProp.Location = new System.Drawing.Point(200, 336);
-            this.idProp.Name = "idProp";
-            this.idProp.Size = new System.Drawing.Size(300, 27);
-            this.idProp.TabIndex = 32;
+            this.cbx_ownerId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_ownerId.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_ownerId.FormattingEnabled = true;
+            this.cbx_ownerId.Location = new System.Drawing.Point(9, 88);
+            this.cbx_ownerId.Name = "cbx_ownerId";
+            this.cbx_ownerId.Size = new System.Drawing.Size(300, 26);
+            this.cbx_ownerId.TabIndex = 18;
             // 
-            // idFarmacia
+            // cbx_locationId
             // 
-            this.idFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idFarmacia.Location = new System.Drawing.Point(200, 285);
-            this.idFarmacia.Name = "idFarmacia";
-            this.idFarmacia.Size = new System.Drawing.Size(300, 27);
-            this.idFarmacia.TabIndex = 31;
-            // 
-            // lbl_estadoFarmacia
-            // 
-            this.lbl_estadoFarmacia.AutoSize = true;
-            this.lbl_estadoFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_estadoFarmacia.Location = new System.Drawing.Point(197, 468);
-            this.lbl_estadoFarmacia.Name = "lbl_estadoFarmacia";
-            this.lbl_estadoFarmacia.Size = new System.Drawing.Size(68, 18);
-            this.lbl_estadoFarmacia.TabIndex = 30;
-            this.lbl_estadoFarmacia.Text = "Estado";
-            // 
-            // lbl_cdFarmacia
-            // 
-            this.lbl_cdFarmacia.AutoSize = true;
-            this.lbl_cdFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cdFarmacia.Location = new System.Drawing.Point(197, 417);
-            this.lbl_cdFarmacia.Name = "lbl_cdFarmacia";
-            this.lbl_cdFarmacia.Size = new System.Drawing.Size(156, 18);
-            this.lbl_cdFarmacia.TabIndex = 29;
-            this.lbl_cdFarmacia.Text = "Ciudad de origen";
-            // 
-            // lbl_direFarmacia
-            // 
-            this.lbl_direFarmacia.AutoSize = true;
-            this.lbl_direFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_direFarmacia.Location = new System.Drawing.Point(197, 366);
-            this.lbl_direFarmacia.Name = "lbl_direFarmacia";
-            this.lbl_direFarmacia.Size = new System.Drawing.Size(197, 18);
-            this.lbl_direFarmacia.TabIndex = 28;
-            this.lbl_direFarmacia.Text = "Dirección de farmacia";
-            // 
-            // lbl_idProp
-            // 
-            this.lbl_idProp.AutoSize = true;
-            this.lbl_idProp.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idProp.Location = new System.Drawing.Point(197, 315);
-            this.lbl_idProp.Name = "lbl_idProp";
-            this.lbl_idProp.Size = new System.Drawing.Size(132, 18);
-            this.lbl_idProp.TabIndex = 27;
-            this.lbl_idProp.Text = "ID Propietario";
-            // 
-            // lbl_idFarmacia
-            // 
-            this.lbl_idFarmacia.AutoSize = true;
-            this.lbl_idFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idFarmacia.Location = new System.Drawing.Point(197, 264);
-            this.lbl_idFarmacia.Name = "lbl_idFarmacia";
-            this.lbl_idFarmacia.Size = new System.Drawing.Size(114, 18);
-            this.lbl_idFarmacia.TabIndex = 26;
-            this.lbl_idFarmacia.Text = "ID Farmacia";
-            // 
-            // superFarmacia
-            // 
-            this.superFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.superFarmacia.Location = new System.Drawing.Point(200, 591);
-            this.superFarmacia.Name = "superFarmacia";
-            this.superFarmacia.Size = new System.Drawing.Size(200, 27);
-            this.superFarmacia.TabIndex = 38;
-            // 
-            // lbl_superFarmacia
-            // 
-            this.lbl_superFarmacia.AutoSize = true;
-            this.lbl_superFarmacia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_superFarmacia.Location = new System.Drawing.Point(197, 570);
-            this.lbl_superFarmacia.Name = "lbl_superFarmacia";
-            this.lbl_superFarmacia.Size = new System.Drawing.Size(95, 18);
-            this.lbl_superFarmacia.TabIndex = 41;
-            this.lbl_superFarmacia.Text = "Superficie";
+            this.cbx_locationId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_locationId.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_locationId.FormattingEnabled = true;
+            this.cbx_locationId.Location = new System.Drawing.Point(9, 139);
+            this.cbx_locationId.Name = "cbx_locationId";
+            this.cbx_locationId.Size = new System.Drawing.Size(300, 26);
+            this.cbx_locationId.TabIndex = 19;
             // 
             // frm_farmacia
             // 
@@ -318,23 +260,10 @@
             this.BackgroundImage = global::FarmaciaMP.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 761);
-            this.Controls.Add(this.superFarmacia);
-            this.Controls.Add(this.lbl_superFarmacia);
+            this.Controls.Add(this.gbx_insert);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.habFarmacia);
-            this.Controls.Add(this.lbl_habFarmcia);
-            this.Controls.Add(this.estadoFarmacia);
-            this.Controls.Add(this.cdFarmacia);
-            this.Controls.Add(this.direFarmacia);
-            this.Controls.Add(this.idProp);
-            this.Controls.Add(this.idFarmacia);
-            this.Controls.Add(this.lbl_estadoFarmacia);
-            this.Controls.Add(this.lbl_cdFarmacia);
-            this.Controls.Add(this.lbl_direFarmacia);
-            this.Controls.Add(this.lbl_idProp);
-            this.Controls.Add(this.lbl_idFarmacia);
             this.Controls.Add(this.btn_inicio);
             this.Controls.Add(this.pbx_encavezado);
             this.Controls.Add(this.btn_consulta);
@@ -347,8 +276,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Farmacias";
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).EndInit();
+            this.gbx_insert.ResumeLayout(false);
+            this.gbx_insert.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -363,19 +293,12 @@
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.TextBox habFarmacia;
-        private System.Windows.Forms.Label lbl_habFarmcia;
-        private System.Windows.Forms.TextBox estadoFarmacia;
-        private System.Windows.Forms.TextBox cdFarmacia;
-        private System.Windows.Forms.TextBox direFarmacia;
-        private System.Windows.Forms.TextBox idProp;
-        private System.Windows.Forms.TextBox idFarmacia;
-        private System.Windows.Forms.Label lbl_estadoFarmacia;
-        private System.Windows.Forms.Label lbl_cdFarmacia;
-        private System.Windows.Forms.Label lbl_direFarmacia;
-        private System.Windows.Forms.Label lbl_idProp;
-        private System.Windows.Forms.Label lbl_idFarmacia;
-        private System.Windows.Forms.TextBox superFarmacia;
-        private System.Windows.Forms.Label lbl_superFarmacia;
+        private System.Windows.Forms.TextBox txt_pharmacyName;
+        private System.Windows.Forms.Label lbl_locationId;
+        private System.Windows.Forms.Label lbl_ownerId;
+        private System.Windows.Forms.Label lbl_pharmacyName;
+        private System.Windows.Forms.GroupBox gbx_insert;
+        private System.Windows.Forms.ComboBox cbx_ownerId;
+        private System.Windows.Forms.ComboBox cbx_locationId;
     }
 }
