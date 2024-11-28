@@ -17,7 +17,7 @@ namespace FarmaciaMP
 
     public partial class frm_consulta : Form
     {
-        private string conexion = "server=DESKTOP-D739HSR\\WINNEMAN; database=FarmaciasMP; integrated security=true";
+        //private string conexion = "server=DESKTOP-D739HSR\\WINNEMAN; database=FarmaciasMP; integrated security=true";
         //string connectionString = "Server=TU_SERVIDOR;Database=FarmaciasMP;User Id=TU_USUARIO;Password=TU_CONTRASEÑA;";
 
         //conaatructor
@@ -33,7 +33,7 @@ namespace FarmaciaMP
             try
             {
                 //ACCEDIENDO A LA BASE DE DATOS Y CREANDO UNA CONEXION LLAMADA PROCEDIMIENTO
-                using (SqlConnection procedimiento = new SqlConnection(conexion))
+                using (SqlConnection procedimiento = new SqlConnection(ConexionSQL.conexioSql))
                 {
                     //SE ABRE LA CONEXION PROCEDIMIENTO
                     procedimiento.Open();
@@ -160,7 +160,7 @@ namespace FarmaciaMP
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(conexion))
+                using (SqlConnection conn = new SqlConnection(ConexionSQL.conexioSql))
                 {
                     conn.Open();
                     // Determinar si es un procedimiento almacenado o una vista

@@ -58,47 +58,114 @@ SELECT * FROM locationTable
 SELECT * FROM medicineTable
 SELECT * FROM inventoryTable
 
-DELETE FROM ownerTable
+DELETE FROM 
 DBCC CHECKIDENT ('ownerTable', RESEED, 0);
 
---[PRUEBA DE PROPIETARIOS]
+-- [Propietarios]
 INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)
 VALUES
-('John', 'Doe', 'M', '1234567890', 'john.doe@gmail.com'),
-('Jane', 'Smith', 'F', '9876543210', 'jane.smith@gmail.com'),
-('Carlos', 'Martínez', 'M', '5552345678', 'carlos.martinez@gmail.com'),
-('Laura', 'González', 'F', '4447651234', 'laura.gonzalez@gmail.com'),
-('Ahmed', 'Khan', 'M', '1112223333', 'ahmed.khan@gmail.com'),
-('Emily', 'Clark', 'F', '3334445555', 'emily.clark@gmail.com'),
-('Miguel', 'Torres', 'M', '2223334444', 'miguel.torres@gmail.com'),
-('Sofia', 'Lopez', 'F', '6667778888', 'sofia.lopez@gmail.com'),
-('David', 'Brown', 'M', '9998887777', 'david.brown@gmail.com'),
-('Lucia', 'Hernández', 'F', '8887776666', 'lucia.hernandez@gmail.com');
+('Carlos', 'Gómez', 'M', '1234567890', 'carlos.gomez@gmail.com'),
+('Ana', 'Martínez', 'F', '1234567891', 'ana.martinez@gmail.com'),
+('Luis', 'Fernández', 'M', '1234567892', 'luis.fernandez@gmail.com'),
+('María', 'López', 'F', '1234567893', 'maria.lopez@gmail.com'),
+('José', 'Pérez', 'M', '1234567894', 'jose.perez@gmail.com'),
+('Laura', 'Ramírez', 'F', '1234567895', 'laura.ramirez@gmail.com'),
+('Javier', 'Torres', 'M', '1234567896', 'javier.torres@gmail.com'),
+('Marta', 'Sánchez', 'F', '1234567897', 'marta.sanchez@gmail.com'),
+('Andrés', 'Castro', 'M', '1234567898', 'andres.castro@gmail.com'),
+('Lucía', 'Vega', 'F', '1234567899', 'lucia.vega@gmail.com'),
+('Miguel', 'Ortega', 'M', '1234567800', 'miguel.ortega@gmail.com'),
+('Sofía', 'Morales', 'F', '1234567801', 'sofia.morales@gmail.com'),
+('Juan', 'Núñez', 'M', '1234567802', 'juan.nunez@gmail.com'),
+('Isabel', 'Herrera', 'F', '1234567803', 'isabel.herrera@gmail.com'),
+('Pedro', 'Flores', 'M', '1234567804', 'pedro.flores@gmail.com'),
+('Elena', 'Rivas', 'F', '1234567805', 'elena.rivas@gmail.com'),
+('Héctor', 'Ruiz', 'M', '1234567806', 'hector.ruiz@gmail.com'),
+('Clara', 'Cruz', 'F', '1234567807', 'clara.cruz@gmail.com'),
+('Roberto', 'Navarro', 'M', '1234567808', 'roberto.navarro@gmail.com'),
+('Gabriela', 'Castillo', 'F', '1234567809', 'gabriela.castillo@gmail.com');
 
---[PRUEBA DE UBICACIONES]
+-- [Ubicaciones]
 INSERT INTO locationTable (locationAddress, locationCity, locationState)
 VALUES
-('Calle Reforma #123', 'Ciudad de México', 'Ciudad de México'),
-('Av. Universidad #456', 'Guadalajara', 'Jalisco'),
-('Calle Hidalgo #789', 'Monterrey', 'Nuevo León'),
-('Boulevard Díaz Ordaz #321', 'Tijuana', 'Baja California'),
-('Calle Morelos #654', 'Cancún', 'Quintana Roo'),
-('Av. Juárez #111', 'Puebla', 'Puebla'),
-('Calle Independencia #222', 'Mérida', 'Yucatán'),
-('Boulevard Benito Juárez #333', 'Chihuahua', 'Chihuahua'),
-('Calle Zaragoza #444', 'Toluca', 'Estado de México'),
-('Av. López Mateos #555', 'Aguascalientes', 'Aguascalientes'),
-('Calle Insurgentes #666', 'Querétaro', 'Querétaro'),
-('Av. Colón #777', 'Veracruz', 'Veracruz'),
-('Calle Victoria #888', 'Villahermosa', 'Tabasco'),
-('Boulevard Hidalgo #999', 'San Luis Potosí', 'San Luis Potosí'),
-('Calle Matamoros #121', 'Saltillo', 'Coahuila'),
-('Av. Constitución #343', 'Tepic', 'Nayarit'),
-('Calle Morelos #565', 'Tuxtla Gutiérrez', 'Chiapas'),
-('Boulevard Reforma #787', 'Culiacán', 'Sinaloa'),
-('Calle Juárez #909', 'Zacatecas', 'Zacatecas'),
-('Av. Independencia #141', 'La Paz', 'Baja California Sur');
+('Av. Reforma 123', 'Ciudad de México', 'CDMX'),
+('Calle 10 #45', 'Guadalajara', 'Jalisco'),
+('Col. Centro #567', 'Monterrey', 'Nuevo León'),
+('Paseo de las Flores 21', 'Puebla', 'Puebla'),
+('Av. Sol 90', 'Cancún', 'Quintana Roo'),
+('Av. Insurgentes 450', 'Querétaro', 'Querétaro'),
+('Calle Luna #11', 'Tijuana', 'Baja California'),
+('Plaza Mayor #32', 'León', 'Guanajuato'),
+('Zona Río #88', 'Mexicali', 'Baja California'),
+('Calle Oro 15', 'Culiacán', 'Sinaloa'),
+('Paseo del Valle 98', 'Mérida', 'Yucatán'),
+('Col. Roma Norte #45', 'Ciudad de México', 'CDMX'),
+('Calle Sur 13', 'Toluca', 'Estado de México'),
+('Av. Hidalgo 32', 'Tepic', 'Nayarit'),
+('Boulevard San Ángel 200', 'Chihuahua', 'Chihuahua'),
+('Col. San Pedro #89', 'Saltillo', 'Coahuila'),
+('Calle Norte 44', 'Villahermosa', 'Tabasco'),
+('Paseo del Norte #77', 'Zacatecas', 'Zacatecas'),
+('Calle Diamante 12', 'Morelia', 'Michoacán'),
+('Av. Principal 101', 'Oaxaca', 'Oaxaca');
 
+-- [Medicamentos]
+INSERT INTO medicineTable (medicineName)
+VALUES
+('Paracetamol'),
+('Ibuprofeno'),
+('Amoxicilina'),
+('Loratadina'),
+('Omeprazol'),
+('Metformina'),
+('Atorvastatina'),
+('Losartán'),
+('Salbutamol'),
+('Aspirina'),
+('Ranitidina'),
+('Cefalexina'),
+('Clonazepam'),
+('Azitromicina'),
+('Diclofenaco'),
+('Enalapril'),
+('Furosemida'),
+('Ketorolaco'),
+('Metronidazol'),
+('Prednisona'),
+('Ciprofloxacino'),
+('Simvastatina'),
+('Dexametasona'),
+('Fluconazol'),
+('Propranolol'),
+('Acetaminofén'),
+('Naproxeno'),
+('Tramadol'),
+('Cetirizina'),
+('Claritromicina'),
+('Hidroxicloroquina'),
+('Valproato'),
+('Glimepirida'),
+('Levotiroxina'),
+('Sertralina'),
+('Lorazepam'),
+('Tamsulosina'),
+('Amlodipino'),
+('Esomeprazol'),
+('Montelukast'),
+('Doxiciclina'),
+('Gabapentina'),
+('Alprazolam'),
+('Rosuvastatina'),
+('Venlafaxina'),
+('Pregabalina'),
+('Lamotrigina'),
+('Sitagliptina'),
+('Zolpidem'),
+('Carbamazepina');
+
+SELECT * FROM ownerTable
+SELECT * FROM locationTable
+SELECT * FROM medicineTable
 
 -- CREAR VISTA DESDE LA TABLA PROPIETARIOS
 CREATE VIEW Detalles_Propietarios AS
