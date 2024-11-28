@@ -153,16 +153,6 @@ namespace FarmaciaMP.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap medicamentoicon {
-            get {
-                object obj = ResourceManager.GetObject("medicamentoicon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap titulo {
             get {
                 object obj = ResourceManager.GetObject("titulo", resourceCulture);
