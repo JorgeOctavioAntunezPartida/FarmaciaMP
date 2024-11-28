@@ -1,3 +1,12 @@
+--[Taller de Base de Datos]---------------------------------------------------------------
+--Proyecto final
+--Equipo
+--Antunez Partida Jorge Octavio 21211910
+--De los Santos Ojeda Noe Santiago 22210300
+--FÃ©lix LÃ³pez JosÃ© AndrÃ©s 21211939
+--MartÃ­nez Nava Blanca Yessenia 21211990
+--Peralta Diaz Kevin Eduardo 22210783
+
 --[Base de Datos]
 CREATE DATABASE FarmaciasMP
 
@@ -8,19 +17,19 @@ GO
 --[Propietarios]
 CREATE TABLE ownerTable
 (
-    ownerId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único del propietario
+    ownerId INT PRIMARY KEY IDENTITY(1,1), -- Identificador Ãºnico del propietario
     ownerName NVARCHAR(50) NOT NULL,       -- Nombre del propietario
 	ownerLastName NVARCHAR(50) NOT NULL,   -- Apellido del propietario
 	ownerGender CHAR(1) NOT NULL,          -- Genero
 	ownerPhoneNumber NVARCHAR(20),         -- Numero telefonico
-    ownerGmail NVARCHAR(128)               -- Información de contacto (Correo electronico)
+    ownerGmail NVARCHAR(128)               -- InformaciÃ³n de contacto (Correo electronico)
 );
 
 --[Ubicacion]
 CREATE TABLE locationTable
 (
-    locationId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único de la ubicación
-    locationAddress NVARCHAR(75),             -- Dirección
+    locationId INT PRIMARY KEY IDENTITY(1,1), -- Identificador Ãºnico de la ubicaciÃ³n
+    locationAddress NVARCHAR(75),             -- DirecciÃ³n
     locationCity NVARCHAR(50),                -- Ciudad
     locationState NVARCHAR(50)                -- Estado
 );
@@ -28,10 +37,10 @@ CREATE TABLE locationTable
 --[Farmacia]
 CREATE TABLE pharmacyTable
 (
-    pharmacyId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único de la farmacia
+    pharmacyId INT PRIMARY KEY IDENTITY(1,1), -- Identificador Ãºnico de la farmacia
     pharmacyName NVARCHAR(50) NOT NULL,      -- Nombre de la farmacia
-    ownerId INT NOT NULL,                     -- Relación con el propietario
-    locationId INT NOT NULL,                  -- Relación con la ubicación
+    ownerId INT NOT NULL,                     -- RelaciÃ³n con el propietario
+    locationId INT NOT NULL,                  -- RelaciÃ³n con la ubicaciÃ³n
     FOREIGN KEY (ownerId) REFERENCES ownerTable(ownerId) ON DELETE CASCADE,
     FOREIGN KEY (locationId) REFERENCES locationTable(locationId) ON DELETE CASCADE
 );
@@ -39,7 +48,7 @@ CREATE TABLE pharmacyTable
 --[Medicamento]
 CREATE TABLE medicineTable
 (
-    medicineId INT PRIMARY KEY IDENTITY(1,1), -- Identificador único del medicamento
+    medicineId INT PRIMARY KEY IDENTITY(1,1), -- Identificador Ãºnico del medicamento
     medicineName NVARCHAR(50) NOT NULL,      -- Nombre del medicamento
 );
 
@@ -47,12 +56,12 @@ CREATE TABLE medicineTable
 CREATE TABLE inventoryTable
 (
     inventoryId INT PRIMARY KEY IDENTITY(1,1), -- Nueva columna como clave primaria
-    pharmacyId INT NOT NULL,                   -- Relación con la farmacia
-    medicineId INT NULL,                       -- Relación con el medicamento, permite NULL
+    pharmacyId INT NOT NULL,                   -- RelaciÃ³n con la farmacia
+    medicineId INT NULL,                       -- RelaciÃ³n con el medicamento, permite NULL
     stock INT NOT NULL,                        -- Cantidad en inventario
     FOREIGN KEY (pharmacyId) REFERENCES pharmacyTable(pharmacyId) ON DELETE CASCADE,
     FOREIGN KEY (medicineId) REFERENCES medicineTable(medicineId) ON DELETE SET NULL,
-    UNIQUE (pharmacyId, medicineId)            -- Restricción de unicidad
+    UNIQUE (pharmacyId, medicineId)            -- RestricciÃ³n de unicidad
 );
 
 --[TEST REGISTROS]==========================================================================
@@ -79,37 +88,37 @@ INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber,
 VALUES
 ('John', 'Doe', 'M', '1234567890', 'john.doe@gmail.com'),
 ('Jane', 'Smith', 'F', '9876543210', 'jane.smith@gmail.com'),
-('Carlos', 'Martínez', 'M', '5552345678', 'carlos.martinez@gmail.com'),
-('Laura', 'González', 'F', '4447651234', 'laura.gonzalez@gmail.com'),
+('Carlos', 'MartÃ­nez', 'M', '5552345678', 'carlos.martinez@gmail.com'),
+('Laura', 'GonzÃ¡lez', 'F', '4447651234', 'laura.gonzalez@gmail.com'),
 ('Ahmed', 'Khan', 'M', '1112223333', 'ahmed.khan@gmail.com'),
 ('Emily', 'Clark', 'F', '3334445555', 'emily.clark@gmail.com'),
 ('Miguel', 'Torres', 'M', '2223334444', 'miguel.torres@gmail.com'),
 ('Sofia', 'Lopez', 'F', '6667778888', 'sofia.lopez@gmail.com'),
 ('David', 'Brown', 'M', '9998887777', 'david.brown@gmail.com'),
-('Lucia', 'Hernández', 'F', '8887776666', 'lucia.hernandez@gmail.com');
+('Lucia', 'HernÃ¡ndez', 'F', '8887776666', 'lucia.hernandez@gmail.com');
 
 --[PRUEBA DE UBICACIONES]
 INSERT INTO locationTable (locationAddress, locationCity, locationState)
 VALUES
-('Calle Reforma #123', 'Ciudad de México', 'Ciudad de México'),
+('Calle Reforma #123', 'Ciudad de MÃ©xico', 'Ciudad de MÃ©xico'),
 ('Av. Universidad #456', 'Guadalajara', 'Jalisco'),
-('Calle Hidalgo #789', 'Monterrey', 'Nuevo León'),
-('Boulevard Díaz Ordaz #321', 'Tijuana', 'Baja California'),
-('Calle Morelos #654', 'Cancún', 'Quintana Roo'),
-('Av. Juárez #111', 'Puebla', 'Puebla'),
-('Calle Independencia #222', 'Mérida', 'Yucatán'),
-('Boulevard Benito Juárez #333', 'Chihuahua', 'Chihuahua'),
-('Calle Zaragoza #444', 'Toluca', 'Estado de México'),
-('Av. López Mateos #555', 'Aguascalientes', 'Aguascalientes'),
-('Calle Insurgentes #666', 'Querétaro', 'Querétaro'),
-('Av. Colón #777', 'Veracruz', 'Veracruz'),
+('Calle Hidalgo #789', 'Monterrey', 'Nuevo LeÃ³n'),
+('Boulevard DÃ­az Ordaz #321', 'Tijuana', 'Baja California'),
+('Calle Morelos #654', 'CancÃºn', 'Quintana Roo'),
+('Av. JuÃ¡rez #111', 'Puebla', 'Puebla'),
+('Calle Independencia #222', 'MÃ©rida', 'YucatÃ¡n'),
+('Boulevard Benito JuÃ¡rez #333', 'Chihuahua', 'Chihuahua'),
+('Calle Zaragoza #444', 'Toluca', 'Estado de MÃ©xico'),
+('Av. LÃ³pez Mateos #555', 'Aguascalientes', 'Aguascalientes'),
+('Calle Insurgentes #666', 'QuerÃ©taro', 'QuerÃ©taro'),
+('Av. ColÃ³n #777', 'Veracruz', 'Veracruz'),
 ('Calle Victoria #888', 'Villahermosa', 'Tabasco'),
-('Boulevard Hidalgo #999', 'San Luis Potosí', 'San Luis Potosí'),
+('Boulevard Hidalgo #999', 'San Luis PotosÃ­', 'San Luis PotosÃ­'),
 ('Calle Matamoros #121', 'Saltillo', 'Coahuila'),
-('Av. Constitución #343', 'Tepic', 'Nayarit'),
-('Calle Morelos #565', 'Tuxtla Gutiérrez', 'Chiapas'),
-('Boulevard Reforma #787', 'Culiacán', 'Sinaloa'),
-('Calle Juárez #909', 'Zacatecas', 'Zacatecas'),
+('Av. ConstituciÃ³n #343', 'Tepic', 'Nayarit'),
+('Calle Morelos #565', 'Tuxtla GutiÃ©rrez', 'Chiapas'),
+('Boulevard Reforma #787', 'CuliacÃ¡n', 'Sinaloa'),
+('Calle JuÃ¡rez #909', 'Zacatecas', 'Zacatecas'),
 ('Av. Independencia #141', 'La Paz', 'Baja California Sur');
 
 =======
@@ -117,28 +126,28 @@ UPDATE pharmacyTable SET pharmacyName = 'FarmaciaNew7' WHERE pharmacyId = 6
 --[REGISTROS]=================================================================================
 INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail) 
 VALUES 
-('Carlos', 'Pérez', 'M', '1234567890', 'carlos.perez@example.com'),
-('María', 'López', 'F', '0987654321', 'maria.lopez@example.com'),
-('Juan', 'Martínez', 'M', '1122334455', 'juan.martinez@example.com'),
-('Ana', 'García', 'F', '2233445566', 'ana.garcia@example.com'),
-('Luis', 'Hernández', 'M', '3344556677', 'luis.hernandez@example.com'),
-('Sofía', 'Ramírez', 'F', '4455667788', 'sofia.ramirez@example.com'),
+('Carlos', 'PÃ©rez', 'M', '1234567890', 'carlos.perez@example.com'),
+('MarÃ­a', 'LÃ³pez', 'F', '0987654321', 'maria.lopez@example.com'),
+('Juan', 'MartÃ­nez', 'M', '1122334455', 'juan.martinez@example.com'),
+('Ana', 'GarcÃ­a', 'F', '2233445566', 'ana.garcia@example.com'),
+('Luis', 'HernÃ¡ndez', 'M', '3344556677', 'luis.hernandez@example.com'),
+('SofÃ­a', 'RamÃ­rez', 'F', '4455667788', 'sofia.ramirez@example.com'),
 ('Miguel', 'Torres', 'M', '5566778899', 'miguel.torres@example.com'),
-('Laura', 'Gómez', 'F', '6677889900', 'laura.gomez@example.com'),
+('Laura', 'GÃ³mez', 'F', '6677889900', 'laura.gomez@example.com'),
 ('Diego', 'Vargas', 'M', '7788990011', 'diego.vargas@example.com'),
 ('Elena', 'Morales', 'F', '8899001122', 'elena.morales@example.com');
 
 INSERT INTO locationTable (locationAddress, locationCity, locationState) 
 VALUES 
-('Avenida Constitución 1000', 'Aguascalientes', 'Aguascalientes'),
-('Calle Paseo del Río 200', 'Tijuana', 'Baja California'),
+('Avenida ConstituciÃ³n 1000', 'Aguascalientes', 'Aguascalientes'),
+('Calle Paseo del RÃ­o 200', 'Tijuana', 'Baja California'),
 ('Avenida del Mar 150', 'La Paz', 'Baja California Sur'),
-('Calle Central 123', 'Tuxtla Gutiérrez', 'Chiapas'),
+('Calle Central 123', 'Tuxtla GutiÃ©rrez', 'Chiapas'),
 ('Avenida Pacheco 700', 'Chihuahua', 'Chihuahua'),
-('Calle Reforma 1234', 'Ciudad de México', 'Ciudad de México'),
-('Avenida Juárez 555', 'Saltillo', 'Coahuila'),
+('Calle Reforma 1234', 'Ciudad de MÃ©xico', 'Ciudad de MÃ©xico'),
+('Avenida JuÃ¡rez 555', 'Saltillo', 'Coahuila'),
 ('Calle Colima 1020', 'Colima', 'Colima'),
-('Avenida Guanajuato 700', 'León', 'Guanajuato'),
+('Avenida Guanajuato 700', 'LeÃ³n', 'Guanajuato'),
 ('Calle Guerrero 456', 'Acapulco', 'Guerrero');
 
 INSERT INTO pharmacyTable (pharmacyName, ownerId, locationId) 
@@ -211,7 +220,7 @@ SELECT
     p.pharmacyId AS ID,
     p.pharmacyName AS Farmacia,
     CONCAT(o.ownerName, ' ', o.ownerLastName) AS Propietario,
-    CONCAT(l.locationCity, '-', l.locationAddress) AS Ubicación
+    CONCAT(l.locationCity, '-', l.locationAddress) AS UbicaciÃ³n
 FROM pharmacyTable p
 INNER JOIN ownerTable o ON p.ownerId = o.ownerId
 INNER JOIN locationTable l ON p.locationId = l.locationId;
@@ -248,7 +257,7 @@ INNER JOIN medicineTable m ON i.medicineId = m.medicineId;
 SELECT * FROM Pharmacy_infoData;
 
 --[PROCEDURES]====================================================================================
--- Método para consultar ownerTable en orden ascendente y descendente
+-- MÃ©todo para consultar ownerTable en orden ascendente y descendente
 CREATE PROCEDURE Propietarios_Tabla(@orderDirection NVARCHAR(4))
 AS
 BEGIN
@@ -260,7 +269,7 @@ BEGIN
         PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
 END;
 
--- Método para consultar locationTable en orden ascendente y descendente
+-- MÃ©todo para consultar locationTable en orden ascendente y descendente
 CREATE PROCEDURE Localizacion_Farmacias(@orderDirection NVARCHAR(4))
 AS
 BEGIN
@@ -272,7 +281,7 @@ BEGIN
         PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
 END;
 
--- Método para consultar pharmacyTable en orden ascendente y descendente
+-- MÃ©todo para consultar pharmacyTable en orden ascendente y descendente
 CREATE PROCEDURE Farmacias(@orderDirection NVARCHAR(4))
 AS
 BEGIN
@@ -284,7 +293,7 @@ BEGIN
         PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
 END;
 
--- Método para consultar medicineTable en orden ascendente y descendente
+-- MÃ©todo para consultar medicineTable en orden ascendente y descendente
 CREATE PROCEDURE Medicamentos(@orderDirection NVARCHAR(4))
 AS
 BEGIN
@@ -296,7 +305,7 @@ BEGIN
         PRINT 'Por favor, use "ASC" o "DESC" como argumento.';
 END;
 
--- Método para consultar inventoryTable en orden ascendente y descendente
+-- MÃ©todo para consultar inventoryTable en orden ascendente y descendente
 CREATE PROCEDURE Inventario(@orderDirection NVARCHAR(4))
 AS
 BEGIN
@@ -357,14 +366,14 @@ BEGIN
         -- Validar datos de entrada
         IF @ownerName IS NULL OR @ownerLastName IS NULL OR @ownerGender IS NULL
         BEGIN
-            RAISERROR('Los campos de nombre, apellido y género son obligatorios.', 16, 1);
+            RAISERROR('Los campos de nombre, apellido y gÃ©nero son obligatorios.', 16, 1);
         END
 
         -- Insertar nuevo propietario
         INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail)
         VALUES (@ownerName, @ownerLastName, @ownerGender, @ownerPhoneNumber, @ownerGmail);
 
-        -- Obtener el ID del propietario recién insertado
+        -- Obtener el ID del propietario reciÃ©n insertado
         DECLARE @newOwnerId INT = SCOPE_IDENTITY();
 
         COMMIT TRANSACTION;
@@ -373,7 +382,7 @@ BEGIN
         SELECT @newOwnerId AS NewOwnerId;
     END TRY
     BEGIN CATCH
-        -- Si hay un error, revertir la transacción
+        -- Si hay un error, revertir la transacciÃ³n
         IF @@TRANCOUNT > 0
             ROLLBACK TRANSACTION;
 
@@ -412,17 +421,17 @@ BEGIN
             RAISERROR('El propietario especificado no existe.', 16, 1);
         END
 
-        -- Verificar que la ubicación existe
+        -- Verificar que la ubicaciÃ³n existe
         IF NOT EXISTS (SELECT 1 FROM locationTable WHERE locationId = @locationId)
         BEGIN
-            RAISERROR('La ubicación especificada no existe.', 16, 1);
+            RAISERROR('La ubicaciÃ³n especificada no existe.', 16, 1);
         END
 
         -- Insertar nueva farmacia
         INSERT INTO pharmacyTable (pharmacyName, ownerId, locationId)
         VALUES (@pharmacyName, @ownerId, @locationId);
 
-        -- Obtener el ID de la farmacia recién insertada
+        -- Obtener el ID de la farmacia reciÃ©n insertada
         DECLARE @newPharmacyId INT = SCOPE_IDENTITY();
 
         COMMIT TRANSACTION;
@@ -431,7 +440,7 @@ BEGIN
         SELECT @newPharmacyId AS NewPharmacyId;
     END TRY
     BEGIN CATCH
-        -- Si hay un error, revertir la transacción
+        -- Si hay un error, revertir la transacciÃ³n
         IF @@TRANCOUNT > 0
             ROLLBACK TRANSACTION;
 
@@ -460,7 +469,7 @@ BEGIN
         -- Validar datos de entrada
         IF @pharmacyId IS NULL OR @medicineId IS NULL OR @stock < 0
         BEGIN
-            RAISERROR('Datos inválidos. Verifique los valores de farmacia, medicamento y stock.', 16, 1);
+            RAISERROR('Datos invÃ¡lidos. Verifique los valores de farmacia, medicamento y stock.', 16, 1);
         END
 
         -- Verificar que la farmacia existe
@@ -492,11 +501,11 @@ BEGIN
 
         COMMIT TRANSACTION;
         
-        -- Confirmar operación exitosa
+        -- Confirmar operaciÃ³n exitosa
         SELECT 1 AS OperationStatus;
     END TRY
     BEGIN CATCH
-        -- Si hay un error, revertir la transacción
+        -- Si hay un error, revertir la transacciÃ³n
         IF @@TRANCOUNT > 0
             ROLLBACK TRANSACTION;
 
