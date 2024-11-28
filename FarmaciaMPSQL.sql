@@ -69,7 +69,7 @@ DBCC CHECKIDENT ('locationTable', RESEED, 0);
 DBCC CHECKIDENT ('pharmacyTable', RESEED, 0);
 DBCC CHECKIDENT ('medicineTable', RESEED, 0);
 
-UPDATE pharmacyTable SET pharmacyName = 'FarmaciaNew2' WHERE ownerId = 1 AND locationId = 1
+UPDATE pharmacyTable SET pharmacyName = 'FarmaciaNew7' WHERE pharmacyId = 6
 --[REGISTROS]=================================================================================
 INSERT INTO ownerTable (ownerName, ownerLastName, ownerGender, ownerPhoneNumber, ownerGmail) 
 VALUES 

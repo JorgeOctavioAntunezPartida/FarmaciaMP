@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -22,6 +23,8 @@ namespace FarmaciaMP
             InitializeComponent();
             LoadOwners();
             LoadLocation();
+            LoadMedicine();
+            LoadPharmacy();
         }
 
         SqlConnection Conex = new SqlConnection(ConexionSQL.conexioSql);
@@ -30,6 +33,7 @@ namespace FarmaciaMP
         #region Boton Guardar
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            string pattern = @"^\d+";
             string consulta;
             string mssj;
 
@@ -49,9 +53,15 @@ namespace FarmaciaMP
             {
                 Conex.Open();
 
+                // Utiliza las expresiones regulares para extraer los números de los ComboBox
+                Match match1 = Regex.Match(cbx_ownerId.Text, pattern);
+                Match match2 = Regex.Match(cbx_locationId.Text, pattern);
+
                 using (SqlCommand comando = new SqlCommand(consulta, Conex))
                 {
                     comando.Parameters.AddWithValue("@pharmacyName", txt_pharmacyName.Text);
+                    comando.Parameters.AddWithValue("@ownerId", int.Parse(match1.Value));
+                    comando.Parameters.AddWithValue("@locationId", int.Parse(match2.Value));
 
                     // Ejecutar la consulta
                     comando.ExecuteNonQuery();
@@ -83,6 +93,7 @@ namespace FarmaciaMP
                 gbx_table.Visible = true;
                 btn_guardar.Enabled = false;
                 btn_modificar.Enabled = false;
+                btn_stock.Enabled = false;
                 btn_eliminar.Text = "Cancelar";
 
                 btn_eliminar.BackColor = Color.Gray;
@@ -100,6 +111,7 @@ namespace FarmaciaMP
                 gbx_table.Visible = false;
                 btn_guardar.Enabled = true;
                 btn_modificar.Enabled = true;
+                btn_stock.Enabled = true;
 
                 btn_eliminar.BackColor = Color.White;
                 btn_eliminar.ForeColor = Color.FromArgb(255, 128, 0);
@@ -119,6 +131,7 @@ namespace FarmaciaMP
                 gbx_table.Visible = true;
                 btn_guardar.Enabled = false;
                 btn_eliminar.Enabled = false;
+                btn_stock.Enabled = false;
                 btn_modificar.Text = "Cancelar";
 
                 btn_modificar.BackColor = Color.Gray;
@@ -139,6 +152,7 @@ namespace FarmaciaMP
                 gbx_table.Visible = false;
                 btn_guardar.Enabled = true;
                 btn_eliminar.Enabled = true;
+                btn_stock.Enabled = true;
 
                 btn_modificar.BackColor = Color.White;
                 btn_modificar.ForeColor = Color.FromArgb(255, 128, 0);
@@ -159,6 +173,89 @@ namespace FarmaciaMP
             if (btn_deleteUpdate.Text == "Modificar")
             {
                 ExecuteUpdate();
+            }
+        }
+        #endregion
+
+        #region Boton Stock
+        private void btn_stock_Click(object sender, EventArgs e)
+        {
+            if (gbx_stock.Visible == false)
+            {
+                LoadPharmacy();
+                gbx_stock.Visible = true;
+                btn_guardar.Enabled = false;
+                btn_eliminar.Enabled = false;
+                btn_modificar.Enabled = false;
+            }
+            else
+            {
+                gbx_stock.Visible = false;
+                btn_guardar.Enabled = true;
+                btn_eliminar.Enabled = true;
+                btn_modificar.Enabled = true;
+            }
+        }
+        #endregion
+
+        #region Boton Cargar
+        private void btn_loadStock_Click(object sender, EventArgs e)
+        {
+            string pattern = @"^\d+"; // Expresión regular para obtener el número antes del ':'
+
+            if (isValidStock()) // Verifica que el stock es válido
+            {
+                // Definir la consulta SQL
+                string consulta = "INSERT INTO inventoryTable (pharmacyId, medicineId, stock) VALUES (@pharmacyId, @medicineId, @stock)";
+
+                // Abre la conexión a la base de datos
+                Conex.Open();
+
+                // Utiliza las expresiones regulares para extraer los números de los ComboBox
+                Match match1 = Regex.Match(cbx_pharmacy.Text, pattern);
+                Match match2 = Regex.Match(cbx_medicine.Text, pattern);
+
+                // Verifica que se haya encontrado un número en ambos ComboBox
+                if (match1.Success && match2.Success)
+                {
+                    // Valida si el valor de stock es un número
+                    if (int.TryParse(txt_stock.Text, out int stock))
+                    {
+                        // Prepara el comando SQL con parámetros
+                        using (SqlCommand comando = new SqlCommand(consulta, Conex))
+                        {
+                            comando.Parameters.AddWithValue("@pharmacyId", int.Parse(match1.Value));
+                            comando.Parameters.AddWithValue("@medicineId", int.Parse(match2.Value));
+                            comando.Parameters.AddWithValue("@stock", stock);
+
+                            // Ejecuta la consulta
+                            comando.ExecuteNonQuery();
+
+                            // Muestra un mensaje de éxito
+                            MessageBox.Show("Stock nuevo cargado", "Actualización de tabla", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                        // Limpia los controles después de la operación
+                        txt_stock.Clear();
+                        cbx_pharmacy.SelectedIndex = -1;
+                        cbx_medicine.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor ingrese un valor numérico válido para el stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor seleccione una farmacia y un medicamento válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Cierra la conexión
+                Conex.Close();
+            }
+            else
+            {
+                MessageBox.Show("Los datos no son válidos para cargar el stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
@@ -395,6 +492,62 @@ namespace FarmaciaMP
             }
         }
 
+        private void LoadMedicine()
+        {
+            string query = "SELECT CONCAT(medicineId, ': ', medicineName) AS Medicina FROM medicineTable";
+
+            try
+            {
+                Conex.Open();
+
+                using (SqlCommand command = new SqlCommand(query, Conex))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Agrega cada elemento al ComboBox
+                            cbx_medicine.Items.Add(reader["Medicina"].ToString());
+                        }
+                    }
+                }
+
+                Conex.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void LoadPharmacy()
+        {
+            string query = "SELECT CONCAT(pharmacyId, ': ', pharmacyName) AS Farmacia FROM pharmacyTable";
+
+            try
+            {
+                Conex.Open();
+
+                using (SqlCommand command = new SqlCommand(query, Conex))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Agrega cada elemento al ComboBox
+                            cbx_pharmacy.Items.Add(reader["Farmacia"].ToString());
+                        }
+                    }
+                }
+
+                Conex.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
         public void ClearRegister()
         {
             txt_pharmacyName.Clear();
@@ -448,6 +601,38 @@ namespace FarmaciaMP
             return true;
         }
 
+        public bool isValidStock()
+        {
+            // Usar un StringBuilder para manejar los errores de manera más eficiente
+            StringBuilder errorMessages = new StringBuilder();
+
+            // Verificar cada campo y agregar los mensajes de error si es necesario
+            if (!EsNumericoYValido())
+            {
+                errorMessages.AppendLine("Necesitas colocar una cantidad numérica.");
+            }
+
+            if (!IsSelectPhatmacy())
+            {
+                errorMessages.AppendLine("Selecciona una farmacia.");
+            }
+
+            if (!IsSelectMedicine())
+            {
+                errorMessages.AppendLine("Selecciona un medicamento.");
+            }
+
+            // Verificar si hay errores y mostrar el mensaje
+            if (errorMessages.Length > 0)
+            {
+                MessageBox.Show(errorMessages.ToString(), "Error al crear el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Si no hay errores, retornar true
+            return true;
+        }
+
         public bool isVoidName()
         {
             return string.IsNullOrWhiteSpace(txt_pharmacyName.Text);
@@ -465,6 +650,40 @@ namespace FarmaciaMP
             bool valid; // Hay alguna ubicacion seleccionado?
             valid = cbx_locationId.SelectedIndex == -1 ? false : true;
             return valid;
+        }
+
+        public bool IsSelectPhatmacy()
+        {
+            bool valid; // Hay algun genero seleccionado?
+            valid = cbx_pharmacy.SelectedIndex == -1 ? false : true;
+            return valid;
+        }
+
+        public bool IsSelectMedicine()
+        {
+            bool valid; // Hay algun genero seleccionado?
+            valid = cbx_medicine.SelectedIndex == -1 ? false : true;
+            return valid;
+        }
+
+        private bool EsNumericoYValido()
+        {
+            // Verifica si el campo no está vacío ni tiene solo espacios
+            if (string.IsNullOrWhiteSpace(txt_stock.Text))
+            {
+                MessageBox.Show("El campo no puede estar vacío ni contener solo espacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Verifica si el contenido es numérico (entero o decimal)
+            decimal result;
+            if (!decimal.TryParse(txt_stock.Text, out result))
+            {
+                MessageBox.Show("El campo debe contener solo valores numéricos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
         #endregion
 

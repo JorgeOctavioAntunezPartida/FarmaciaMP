@@ -47,10 +47,20 @@
             this.gbx_table = new System.Windows.Forms.GroupBox();
             this.btn_deleteUpdate = new System.Windows.Forms.Button();
             this.dgv_pharmacyTable = new System.Windows.Forms.DataGridView();
+            this.btn_stock = new System.Windows.Forms.Button();
+            this.gbx_stock = new System.Windows.Forms.GroupBox();
+            this.cbx_medicine = new System.Windows.Forms.ComboBox();
+            this.cbx_pharmacy = new System.Windows.Forms.ComboBox();
+            this.lbl_stock = new System.Windows.Forms.Label();
+            this.lbl_pharmacy = new System.Windows.Forms.Label();
+            this.lbl_medicine = new System.Windows.Forms.Label();
+            this.txt_stock = new System.Windows.Forms.TextBox();
+            this.btn_loadStock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_encavezado)).BeginInit();
             this.gbx_insert.SuspendLayout();
             this.gbx_table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pharmacyTable)).BeginInit();
+            this.gbx_stock.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_inicio
@@ -295,6 +305,112 @@
             this.dgv_pharmacyTable.Size = new System.Drawing.Size(528, 198);
             this.dgv_pharmacyTable.TabIndex = 0;
             // 
+            // btn_stock
+            // 
+            this.btn_stock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_stock.FlatAppearance.BorderSize = 2;
+            this.btn_stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stock.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_stock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_stock.Location = new System.Drawing.Point(672, 432);
+            this.btn_stock.Name = "btn_stock";
+            this.btn_stock.Size = new System.Drawing.Size(100, 50);
+            this.btn_stock.TabIndex = 8;
+            this.btn_stock.Text = "Stock";
+            this.btn_stock.UseVisualStyleBackColor = true;
+            this.btn_stock.Click += new System.EventHandler(this.btn_stock_Click);
+            // 
+            // gbx_stock
+            // 
+            this.gbx_stock.Controls.Add(this.btn_loadStock);
+            this.gbx_stock.Controls.Add(this.cbx_medicine);
+            this.gbx_stock.Controls.Add(this.cbx_pharmacy);
+            this.gbx_stock.Controls.Add(this.lbl_stock);
+            this.gbx_stock.Controls.Add(this.lbl_pharmacy);
+            this.gbx_stock.Controls.Add(this.lbl_medicine);
+            this.gbx_stock.Controls.Add(this.txt_stock);
+            this.gbx_stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbx_stock.Location = new System.Drawing.Point(230, 264);
+            this.gbx_stock.Name = "gbx_stock";
+            this.gbx_stock.Size = new System.Drawing.Size(320, 280);
+            this.gbx_stock.TabIndex = 21;
+            this.gbx_stock.TabStop = false;
+            this.gbx_stock.Visible = false;
+            // 
+            // cbx_medicine
+            // 
+            this.cbx_medicine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_medicine.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_medicine.FormattingEnabled = true;
+            this.cbx_medicine.Location = new System.Drawing.Point(9, 88);
+            this.cbx_medicine.Name = "cbx_medicine";
+            this.cbx_medicine.Size = new System.Drawing.Size(300, 26);
+            this.cbx_medicine.TabIndex = 2;
+            // 
+            // cbx_pharmacy
+            // 
+            this.cbx_pharmacy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_pharmacy.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_pharmacy.FormattingEnabled = true;
+            this.cbx_pharmacy.Location = new System.Drawing.Point(9, 37);
+            this.cbx_pharmacy.Name = "cbx_pharmacy";
+            this.cbx_pharmacy.Size = new System.Drawing.Size(300, 26);
+            this.cbx_pharmacy.TabIndex = 1;
+            // 
+            // lbl_stock
+            // 
+            this.lbl_stock.AutoSize = true;
+            this.lbl_stock.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_stock.Location = new System.Drawing.Point(6, 118);
+            this.lbl_stock.Name = "lbl_stock";
+            this.lbl_stock.Size = new System.Drawing.Size(86, 18);
+            this.lbl_stock.TabIndex = 12;
+            this.lbl_stock.Text = "Cantidad";
+            // 
+            // lbl_pharmacy
+            // 
+            this.lbl_pharmacy.AutoSize = true;
+            this.lbl_pharmacy.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pharmacy.Location = new System.Drawing.Point(6, 16);
+            this.lbl_pharmacy.Name = "lbl_pharmacy";
+            this.lbl_pharmacy.Size = new System.Drawing.Size(88, 18);
+            this.lbl_pharmacy.TabIndex = 13;
+            this.lbl_pharmacy.Text = "Farmacia";
+            // 
+            // lbl_medicine
+            // 
+            this.lbl_medicine.AutoSize = true;
+            this.lbl_medicine.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_medicine.Location = new System.Drawing.Point(6, 67);
+            this.lbl_medicine.Name = "lbl_medicine";
+            this.lbl_medicine.Size = new System.Drawing.Size(136, 18);
+            this.lbl_medicine.TabIndex = 14;
+            this.lbl_medicine.Text = "Mediacamento";
+            // 
+            // txt_stock
+            // 
+            this.txt_stock.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_stock.Location = new System.Drawing.Point(9, 139);
+            this.txt_stock.MaxLength = 4;
+            this.txt_stock.Name = "txt_stock";
+            this.txt_stock.Size = new System.Drawing.Size(103, 27);
+            this.txt_stock.TabIndex = 3;
+            // 
+            // btn_loadStock
+            // 
+            this.btn_loadStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_loadStock.FlatAppearance.BorderSize = 2;
+            this.btn_loadStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_loadStock.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_loadStock.ForeColor = System.Drawing.Color.White;
+            this.btn_loadStock.Location = new System.Drawing.Point(214, 222);
+            this.btn_loadStock.Name = "btn_loadStock";
+            this.btn_loadStock.Size = new System.Drawing.Size(100, 50);
+            this.btn_loadStock.TabIndex = 22;
+            this.btn_loadStock.Text = "Cargar";
+            this.btn_loadStock.UseVisualStyleBackColor = false;
+            this.btn_loadStock.Click += new System.EventHandler(this.btn_loadStock_Click);
+            // 
             // frm_farmacia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +419,8 @@
             this.BackgroundImage = global::FarmaciaMP.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.gbx_stock);
+            this.Controls.Add(this.btn_stock);
             this.Controls.Add(this.gbx_table);
             this.Controls.Add(this.gbx_insert);
             this.Controls.Add(this.btn_modificar);
@@ -324,6 +442,8 @@
             this.gbx_insert.PerformLayout();
             this.gbx_table.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pharmacyTable)).EndInit();
+            this.gbx_stock.ResumeLayout(false);
+            this.gbx_stock.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -349,5 +469,14 @@
         private System.Windows.Forms.GroupBox gbx_table;
         private System.Windows.Forms.Button btn_deleteUpdate;
         private System.Windows.Forms.DataGridView dgv_pharmacyTable;
+        private System.Windows.Forms.Button btn_stock;
+        private System.Windows.Forms.GroupBox gbx_stock;
+        private System.Windows.Forms.ComboBox cbx_medicine;
+        private System.Windows.Forms.ComboBox cbx_pharmacy;
+        private System.Windows.Forms.Label lbl_stock;
+        private System.Windows.Forms.Label lbl_pharmacy;
+        private System.Windows.Forms.Label lbl_medicine;
+        private System.Windows.Forms.TextBox txt_stock;
+        private System.Windows.Forms.Button btn_loadStock;
     }
 }
