@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\admin\\desktop\\repositorios git hub\\farmaciamp\\farmaciamp\\frm_medicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_medicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,6 +26,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+=======
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_farmacia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_farmacia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_propietario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_propietario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|c:\\users\\jorge\\documents\\github\\farmaciamp\\farmaciamp\\frm_farmacia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8F9449AC-0DB6-4F3A-8BE2-0FB483004CAC}|FarmaciaMP.csproj|solutionrelative:frm_farmacia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+>>>>>>> 7223065b07a22dd466f9fe47f698acec8bff7634
     }
   ],
   "DocumentGroupContainers": [
@@ -33,24 +46,38 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
+<<<<<<< HEAD
           "DockedWidth": 317,
+=======
+          "DockedWidth": 200,
+>>>>>>> 7223065b07a22dd466f9fe47f698acec8bff7634
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "frm_medicamento.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_medicamento.cs",
               "RelativeDocumentMoniker": "frm_medicamento.cs",
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_medicamento.cs",
               "RelativeToolTip": "frm_medicamento.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAACIAAAAZAAAA",
+=======
+              "Title": "frm_farmacia.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_farmacia.cs",
+              "RelativeDocumentMoniker": "frm_farmacia.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_farmacia.cs",
+              "RelativeToolTip": "frm_farmacia.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAtwLgAAAAfAAAAAAAAAA==",
+>>>>>>> 7223065b07a22dd466f9fe47f698acec8bff7634
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T10:14:27.497Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 3,
               "Title": "frm_ciudad.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs",
@@ -58,6 +85,14 @@
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_ciudad.cs",
               "RelativeToolTip": "frm_ciudad.cs",
               "ViewState": "AQIAAE0AAAAAAAAAAAAIwL4AAAAAAAAA",
+=======
+              "DocumentIndex": 2,
+              "Title": "frm_farmacia.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_farmacia.cs",
+              "RelativeDocumentMoniker": "frm_farmacia.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_farmacia.cs [Dise\u00F1o]",
+              "RelativeToolTip": "frm_farmacia.cs [Dise\u00F1o]",
+>>>>>>> 7223065b07a22dd466f9fe47f698acec8bff7634
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T10:05:33.161Z",
               "EditorCaption": ""
@@ -101,12 +136,22 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 2,
               "Title": "frm_medicamento.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_medicamento.cs",
               "RelativeDocumentMoniker": "frm_medicamento.cs",
               "ToolTip": "C:\\Users\\admin\\Desktop\\REPOSITORIOS GIT HUB\\FarmaciaMP\\FarmaciaMP\\frm_medicamento.cs [Dise\u00F1o]",
               "RelativeToolTip": "frm_medicamento.cs [Dise\u00F1o]",
+=======
+              "DocumentIndex": 1,
+              "Title": "frm_propietario.cs",
+              "DocumentMoniker": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_propietario.cs",
+              "RelativeDocumentMoniker": "frm_propietario.cs",
+              "ToolTip": "C:\\Users\\Jorge\\Documents\\GitHub\\FarmaciaMP\\FarmaciaMP\\frm_propietario.cs",
+              "RelativeToolTip": "frm_propietario.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAowK0AAAAIAAAAAAAAAA==",
+>>>>>>> 7223065b07a22dd466f9fe47f698acec8bff7634
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T10:14:18.495Z",
               "EditorCaption": " [Dise\u00F1o]"
